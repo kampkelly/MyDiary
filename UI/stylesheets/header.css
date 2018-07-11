@@ -90,3 +90,31 @@ header nav.mobile ul li.active a {
 header nav.mobile ul li a {
   color: #052F60;
 }
+
+@media (min-width: 600px) and (max-width: 900px) {
+  header {
+    height: 120px;
+  }
+  header nav.desktop ul {
+    margin-top: 5px;
+    padding-bottom: 10px;
+  }
+}
+@media (min-width: 0px) and (max-width: 599px) {
+  header {
+    display: block;
+    position: relative;
+  }
+  header .grid-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  header nav.desktop {
+    display: none;
+  }
+  header nav.mobile {
+    display: block;
+  }
+}
