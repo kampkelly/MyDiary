@@ -1,0 +1,92 @@
+/*header styles */
+header {
+  height: 80px;
+  background-color: #052F60;
+}
+header h1 span {
+  color: #DFAC2C;
+}
+header nav.desktop {
+  font-size: 0.8em;
+}
+header nav.desktop ul {
+  margin-top: 30px;
+}
+header nav.desktop ul li a {
+  padding: 10px;
+  color: white;
+  border-radius: 3px;
+}
+header nav.desktop ul li a:hover {
+  background-color: #DFAC2C;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+header nav.mobile {
+  display: none;
+  font-size: 1.7em;
+}
+header nav.mobile h1 a {
+  color: #052F60 !important;
+}
+header nav.mobile .menu-button {
+  position: absolute;
+  top: 0.9em;
+  margin-left: 10px;
+  cursor: pointer;
+}
+header nav.mobile .menu-button:hover > span {
+  background-color: #DFAC2C;
+}
+header nav.mobile .menu-button span {
+  width: 30px;
+  height: 4px;
+  background-color: #fafafa;
+  margin: 6px 0;
+  display: block;
+}
+header nav.mobile ul {
+  left: -100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0% 0% 0% 0%;
+  background: #EEEEEE;
+  position: fixed;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+}
+header nav.mobile ul .menu-button-close {
+  color: #052F60;
+  cursor: pointer;
+  position: absolute;
+  right: 1em;
+  top: 10px;
+}
+header nav.mobile ul .menu-button-close:hover {
+  color: #DFAC2C;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+header nav.mobile ul li {
+  margin-bottom: 0.8em;
+}
+header nav.mobile ul li:first-of-type {
+  margin: 0px;
+}
+header nav.mobile ul li:hover a {
+  color: #DFAC2C;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+header nav.mobile ul li.active a {
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+header nav.mobile ul li a {
+  color: #052F60;
+}
