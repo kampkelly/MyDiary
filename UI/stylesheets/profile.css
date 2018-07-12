@@ -21,3 +21,15 @@
   width: 100%;
   background: #8c8c8c;
 }
+
+@media (min-width: 0px) and (max-width: 599px) {
+  #profile_details, #settings {
+    padding-left: 20px;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  #settings form {
+    margin: auto;
+    width: 70%;
+  }
+}
