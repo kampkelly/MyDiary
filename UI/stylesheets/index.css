@@ -1,0 +1,17 @@
+#index {
+  width: 70%;
+  margin: auto;
+}
+#index ul li {
+  border-bottom: 1px solid #d0d0d0;
+}
+#index ul li a {
+  border-radius: 10px;
+  color: #DFAC2C;
+}
+#index ul li .description {
+  color: black;
+}
+#index ul li:last-of-type {
+  border-bottom: none;
+}
