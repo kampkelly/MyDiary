@@ -1,0 +1,15 @@
+#signup .form-cover {
+  width: 60%;
+  margin: auto;
+}
+@media (min-width: 0px) and (max-width: 599px) {
+  #signup .form-cover {
+    width: 90%;
+    margin: auto;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  #signup .form-cover {
+    width: 80%;
+  }
+}
