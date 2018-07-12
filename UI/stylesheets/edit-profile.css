@@ -1,0 +1,29 @@
+#edit-profile h3 {
+  margin-bottom: 0;
+  padding-top: 10px;
+}
+#edit-profile fieldset {
+  border: none;
+}
+#edit-profile .form-cover {
+  background: #f2f2f2;
+}
+#edit-profile .form-cover .field {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+#edit-profile .form-cover .field:last-of-type {
+  background: none;
+  padding: 0px;
+}
+#edit-profile .form-cover .field .control-form {
+  background: #052F60;
+  color: white;
+}
+#edit-profile .form-cover .field button:hover {
+  color: white;
+}
+#edit-profile [class*='col-'] {
+  margin: auto;
+}
