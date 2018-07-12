@@ -1,0 +1,14 @@
+.white-forms {
+  width: 100%;
+  margin: auto;
+}
+
+#add {
+  margin-top: 60px;
+}
+#add form .field {
+  padding: 10px;
+}
+#add form .field .control-form, #add form .field button {
+  width: 100%;
+}
