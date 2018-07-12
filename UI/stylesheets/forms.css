@@ -66,3 +66,48 @@ form .button-primary:hover {
 form fieldset {
   margin-bottom: 20px;
 }
+
+.blue-forms {
+  background: #052F60;
+}
+.blue-forms label {
+  color: white;
+}
+.blue-forms .control-form {
+  background: white;
+}
+.blue-forms .control-form:focus {
+  background: #d0d0d0;
+}
+
+.white-forms {
+  background: #E1E1E1;
+  border-radius: 2px;
+}
+.white-forms .field {
+  background: white;
+  border: 1px solid #fafafa;
+}
+.white-forms .field label {
+  color: #052F60;
+  font-weight: bold;
+}
+.white-forms .field .control-form {
+  color: white;
+  background: #052F60;
+}
+.white-forms .field .control-form:focus {
+  background: #d0d0d0;
+  color: black;
+}
+.white-forms .field button {
+  background: #fafafa;
+  color: #052F60;
+}
+.white-forms .field button:hover {
+  background: #d0d0d0;
+}
+.white-forms .field:last-of-type {
+  background: none;
+  border: none;
+}
