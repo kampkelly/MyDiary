@@ -1,0 +1,68 @@
+form {
+  padding: 20px;
+}
+form .field {
+  margin: 0px 0px 15px 0px;
+}
+form .field label {
+  margin: 3px 0px 3px 0px;
+  padding: 6px 6px 6px 0px;
+  font-size: 1em;
+  float: left;
+}
+form .field textarea.control-form {
+  height: 12em;
+  resize: vertical;
+  padding-top: 30px;
+}
+form .field .control-form {
+  border: none;
+  float: left;
+  height: 2.7em;
+  width: 75%;
+  border-radius: 3px;
+  padding: 0px 6px 0px 6px;
+  border-color: inherit;
+  font-size: 0.8em;
+}
+form .field .submit-button {
+  float: left;
+  height: 2.7em;
+  width: 75%;
+  padding: 0px 0px 0px 0px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+}
+form .field a {
+  color: white;
+  margin-right: 30px;
+}
+form .field a:hover {
+  color: #DFAC2C;
+}
+form .button-white {
+  background-color: white;
+  color: #052F60;
+}
+form .button-white:hover {
+  background-color: #d0d0d0;
+  color: #052F60;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+form .button-primary {
+  background-color: #052F60;
+  color: white;
+  border: none;
+}
+form .button-primary:hover {
+  background-color: #308de1;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+form fieldset {
+  margin-bottom: 20px;
+}
