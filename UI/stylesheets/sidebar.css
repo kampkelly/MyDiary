@@ -31,3 +31,22 @@
   -webkit-transition: 1s;
   transition: 1s;
 }
+
+@media (min-width: 0px) and (max-width: 599px) {
+  .sidebar {
+    border-left: none;
+    padding-left: 0px;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  .sidebar {
+    border-left: none;
+    padding-left: 0px;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
