@@ -1,0 +1,124 @@
+form {
+  padding: 20px;
+}
+form .field {
+  margin: 0px 0px 15px 0px;
+}
+form .field label {
+  margin: 3px 0px 3px 0px;
+  padding: 6px 6px 6px 0px;
+  font-size: 1em;
+  float: left;
+}
+form .field textarea.control-form {
+  height: 12em;
+  resize: vertical;
+  padding-top: 30px;
+}
+form .field .control-form {
+  border: none;
+  float: left;
+  height: 2.7em;
+  width: 75%;
+  border-radius: 3px;
+  padding: 0px 6px 0px 6px;
+  border-color: inherit;
+  font-size: 0.8em;
+}
+form .field .submit-button {
+  float: left;
+  height: 2.7em;
+  width: 75%;
+  padding: 0px 0px 0px 0px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+}
+form .field a {
+  color: white;
+  margin-right: 30px;
+}
+form .field a:hover {
+  color: #DFAC2C;
+}
+form .button-white {
+  background-color: white;
+  color: #052F60;
+}
+form .button-white:hover {
+  background-color: #d0d0d0;
+  color: #052F60;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+form .button-primary {
+  background-color: #052F60;
+  color: white;
+  border: none;
+}
+form .button-primary:hover {
+  background-color: #308de1;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+form fieldset {
+  margin-bottom: 20px;
+}
+
+.blue-forms {
+  background: #052F60;
+}
+.blue-forms label {
+  color: white;
+}
+.blue-forms .control-form {
+  background: white;
+}
+.blue-forms .control-form:focus {
+  background: #d0d0d0;
+}
+
+.white-forms {
+  background: #E1E1E1;
+  border-radius: 2px;
+}
+.white-forms .field {
+  background: white;
+  border: 1px solid #fafafa;
+}
+.white-forms .field label {
+  color: #052F60;
+  font-weight: bold;
+}
+.white-forms .field .control-form {
+  color: white;
+  background: #052F60;
+}
+.white-forms .field .control-form:focus {
+  background: #d0d0d0;
+  color: black;
+}
+.white-forms .field button {
+  background: #fafafa;
+  color: #052F60;
+}
+.white-forms .field button:hover {
+  background: #d0d0d0;
+}
+.white-forms .field:last-of-type {
+  background: none;
+  border: none;
+}
+
+@media (min-width: 0px) and (max-width: 599px) {
+  form .field label, form .field .control-form, form .field .submit-button {
+    float: none;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  form .field label, form .field .control-form, form .field .submit-button {
+    float: none;
+  }
+}
