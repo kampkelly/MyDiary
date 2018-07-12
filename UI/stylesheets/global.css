@@ -30,6 +30,10 @@
   color: #052F60;
 }
 
+.light-text {
+  font-weight: 200;
+}
+
 .success-text {
   color: green;
 }
