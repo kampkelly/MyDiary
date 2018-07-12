@@ -111,3 +111,14 @@ form fieldset {
   background: none;
   border: none;
 }
+
+@media (min-width: 0px) and (max-width: 599px) {
+  form .field label, form .field .control-form, form .field .submit-button {
+    float: none;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  form .field label, form .field .control-form, form .field .submit-button {
+    float: none;
+  }
+}
