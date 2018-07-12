@@ -1,5 +1,18 @@
+main {
+  background-image: url("../images/background.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat-x: no-repeat;
+  background-repeat-y: no-repeat;
+}
+main h2 {
+  margin-top: 0px;
+  padding-top: 20px;
+}
+
 #signup .form-cover {
-  width: 60%;
+  background: rgba(107, 101, 101, 0.3);
+  width: 61%;
   margin: auto;
 }
 @media (min-width: 0px) and (max-width: 599px) {
