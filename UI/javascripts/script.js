@@ -17,6 +17,14 @@ function SubmitSignup() {
 
     }
 }
+function SubmitSignin() {
+    var success_message = 'Sign in successful!';
+    var error_message = 'One or more of the required fields is empty!';
+    var none_empty = ValidateForm(error_message, success_message, event);
+    if ( none_empty === true) { //validation was successful
+
+    }
+}
 function UpdateProfile() {
     var success_message = 'Profile Updated!';
     var error_message = 'Please fill the form fields!';
