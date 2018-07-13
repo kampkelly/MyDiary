@@ -25,6 +25,15 @@ function SubmitSignin() {
 
     }
 }
+function ForgotPassword() {
+    var success_message = 'Your password has been sent to the email if it exists!';
+    var error_message = 'Please enter a valid email!';
+    ValidateForm(error_message, success_message, event);
+    var none_empty = ValidateForm(error_message, success_message, event);
+    if ( none_empty === true) { //validation was successful
+
+    }
+}
 function AddEntry() {
     var success_message = 'Entry has been saved!';
     var error_message = 'One or more of the required fields is empty!';
@@ -54,7 +63,8 @@ function SaveSettings() {
     var error_message = 'Please Enter a Valid Date!';
     var none_empty = ValidateForm(error_message, success_message, event);
     if ( none_empty === true) { //validation was successful
-
+        var time = $(event.target).parents('form:first').find('input[type="time"]').val();
+        $('.success-text #notification_time').text(time);
     }
 }
 
