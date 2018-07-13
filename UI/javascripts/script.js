@@ -17,3 +17,29 @@ function UpdateProfile() {
 
     }
 }
+
+function ValidateForm(error_message, success_message, event) {
+    event.preventDefault();
+    var form = $(event.target).parents('form:first');
+    var req = form.find('*[required="true"]');
+    var checkedValues = req.map(function() {
+        return this.value;
+    }).get();
+    if ( CheckCheckedValues(checkedValues) === true) { //success
+        //form.submit();
+        $(event.target).parents('form:first').find('.form_error_text small').text('');
+        $(event.target).parents('form:first').find('.form_success_text small').text(success_message);
+    }else{
+        $(event.target).parents('form:first').find('.form_success_text small').text('');
+        $(event.target).parents('form:first').find('.form_error_text small').text(error_message);
+    }
+    return CheckCheckedValues(checkedValues);
+}
+function CheckCheckedValues(checkedValues){
+   for(var i=0;i<checkedValues.length;i++){
+       if(checkedValues[i] === "") {
+           return false;
+       }
+   }
+   return true;
+}
