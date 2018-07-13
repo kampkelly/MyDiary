@@ -21,6 +21,9 @@
   background: #052F60;
   color: white;
 }
+#edit-profile .form-cover .field button {
+  background: #9d9d9d;
+}
 #edit-profile .form-cover .field button:hover {
   color: white;
 }
