@@ -230,6 +230,9 @@ footer li a:hover {
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
+footer li:last-of-type small {
+  color: gray;
+}
 
 /*media queries*/
 @media (min-width: 0px) and (max-width: 599px) {
