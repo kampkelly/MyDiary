@@ -9,3 +9,11 @@ $(document).ready(function(){
         });
     });
 });
+function UpdateProfile() {
+    var success_message = 'Profile Updated!';
+    var error_message = 'Please fill the form fields!';
+    var none_empty = ValidateForm(error_message, success_message, event);
+    if ( none_empty === true) { //validation was successful
+
+    }
+}
