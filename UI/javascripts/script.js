@@ -49,6 +49,14 @@ function UpdateProfile() {
 
     }
 }
+function SaveSettings() {
+    var success_message = 'Settings Saved!';
+    var error_message = 'Please Enter a Valid Date!';
+    var none_empty = ValidateForm(error_message, success_message, event);
+    if ( none_empty === true) { //validation was successful
+
+    }
+}
 
 function ValidateForm(error_message, success_message, event) {
     event.preventDefault();
