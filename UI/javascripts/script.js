@@ -9,73 +9,72 @@ $(document).ready(function(){
         });
     });
 });
-function SubmitSignup() {
+function submitSignup() {
     var success_message = 'You have been signed up!';
     var error_message = 'One or more of the required fields is empty!';
-    var none_empty =ValidateForm(error_message, success_message, event);
+    var none_empty =validateForm(error_message, success_message, event);
     if ( none_empty === true) { //validation was successful
 
     }
 }
-function SubmitSignin() {
+function submitSignin() {
     var success_message = 'Sign in successful!';
     var error_message = 'One or more of the required fields is empty!';
-    var none_empty = ValidateForm(error_message, success_message, event);
+    var none_empty = validateForm(error_message, success_message, event);
     if ( none_empty === true) { //validation was successful
 
     }
 }
-function ForgotPassword() {
+function forgotPassword() {
     var success_message = 'Your password has been sent to the email if it exists!';
     var error_message = 'Please enter a valid email!';
-    ValidateForm(error_message, success_message, event);
-    var none_empty = ValidateForm(error_message, success_message, event);
+    var none_empty = validateForm(error_message, success_message, event);
     if ( none_empty === true) { //validation was successful
 
     }
 }
-function AddEntry() {
+function addEntry() {
     var success_message = 'Entry has been saved!';
     var error_message = 'One or more of the required fields is empty!';
-    var none_empty = ValidateForm(error_message, success_message, event);
+    var none_empty = validateForm(error_message, success_message, event);
     if ( none_empty === true) { //validation was successful
 
     }
 }
-function EditEntry() {
+function editEntry() {
     var success_message = 'Entry has been updated!';
     var error_message = 'One or more of the required fields is empty!';
-    var none_empty = ValidateForm(error_message, success_message, event);
+    var none_empty = validateForm(error_message, success_message, event);
     if ( none_empty === true) { //validation was successful
 
     }
 }
-function UpdateProfile() {
+function updateProfile() {
     var success_message = 'Profile Updated!';
     var error_message = 'Please fill the form fields!';
-    var none_empty = ValidateForm(error_message, success_message, event);
+    var none_empty = validateForm(error_message, success_message, event);
     if ( none_empty === true) { //validation was successful
 
     }
 }
-function SaveSettings() {
+function saveSettings() {
     var success_message = 'Settings Saved!';
     var error_message = 'Please Enter a Valid Date!';
-    var none_empty = ValidateForm(error_message, success_message, event);
+    var none_empty = validateForm(error_message, success_message, event);
     if ( none_empty === true) { //validation was successful
         var time = $(event.target).parents('form:first').find('input[type="time"]').val();
         $('.success-text #notification_time').text(time);
     }
 }
 
-function ValidateForm(error_message, success_message, event) {
+function validateForm(error_message, success_message, event) {
     event.preventDefault();
     var form = $(event.target).parents('form:first');
     var req = form.find('*[required="true"]');
     var checkedValues = req.map(function() {
         return this.value;
     }).get();
-    if ( CheckCheckedValues(checkedValues) === true) { //success
+    if ( checkCheckedValues(checkedValues) === true) { //success
         //form.submit();
         $(event.target).parents('form:first').find('.form_error_text small').text('');
         $(event.target).parents('form:first').find('.form_success_text small').text(success_message);
@@ -83,9 +82,9 @@ function ValidateForm(error_message, success_message, event) {
         $(event.target).parents('form:first').find('.form_success_text small').text('');
         $(event.target).parents('form:first').find('.form_error_text small').text(error_message);
     }
-    return CheckCheckedValues(checkedValues);
+    return checkCheckedValues(checkedValues);
 }
-function CheckCheckedValues(checkedValues){
+function checkCheckedValues(checkedValues){
    for(var i=0;i<checkedValues.length;i++){
        if(checkedValues[i] === "") {
            return false;
