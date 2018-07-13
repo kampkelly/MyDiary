@@ -13,6 +13,7 @@ form .field label {
 form .field textarea.control-form {
   height: 12em;
   resize: vertical;
+  line-height: 24px;
   padding-top: 30px;
 }
 form .field .control-form {
