@@ -22,13 +22,18 @@
                     <div class="col-4-6 col-6-6-xs col-6-6-md">
                         <nav class="desktop">
                             <ul class="no-styling flex justify-items-between">
-                                <li class="list-inline active"><a href="index.html">Home</a></li>
-                                <li class="list-inline"><a href="index.html">My Entries</a></li>
+                                <li class="list-inline"><a href="index.html">Home</a></li>
                                 <li class="list-inline"><a href="add.html">Add an entry</a></li>
                                 <li class="list-inline"><a href="signup.html">Signup</a></li>
                                 <li class="list-inline"><a href="signin.html">Signin</a></li>
                                 <li class="list-inline"><a href="profile.html">My Profile</a></li>
                                 <li class="list-inline"><a href="#">Logout</a></li>
+                                <li class="list-inline" id="search">
+                                    <div>
+                                        <input type="text" placeholder="search entries.."/>
+                                        <input type="submit" value=" "><img src="images/search-button.png" />
+                                    </div>
+                                </li>
                             </ul>
                         </nav>
                         <nav class="mobile">
@@ -41,12 +46,18 @@
                                 <ul class="no-styling flex text-center">
                                     <span class="menu-button-close">X</span>
                                     <li><h1 class="text-center"><a href="index.html" class="white-text">My<span>Diary</span></a></h1></li>
-                                    <li class="active"><a href="#">Home</a></li>
-                                    <li class=""><a href="index.html">My Entries</a></li>
+                                    <li class="list-inline" id="search">
+                                        <div>
+                                            <input type="text" placeholder="search entries.."/>
+                                            <input type="submit" value=" "><img src="images/search-button.png" />
+                                        </div>
+                                    </li>
+                                    <li class=""><a href="index.html">Home</a></li>
                                     <li class=""><a href="add.html">Add an entry</a></li>
                                     <li class=""><a href="profile.html">My Profile</a></li>
                                     <li class=""><a href="signup.html">Signup</a></li>
                                     <li class=""><a href="signin.html">Signin</a></li>
+                                    <li class=""><a href="about.html">About</a></li>
                                     <li class=""><a href="#logout">Logout</a></li>
                                 </ul>
                             </div>
@@ -62,9 +73,9 @@
                         <section id="show">
                             <article>
                                 <h3 class="title text-center">Where can I get some?</h3>
-                                <span class="small-text light-text primary-text">2 days ago</span>
+                                <span class="small-text light-text primary-text">1 day ago</span>
                                 <div>
-                                    <small><a href="edit.html" class="underline">Modify</a> <a href="delete.html" class="danger-text underline">Delete</a></small>
+                                    <small><a href="edit.html" class="underline">Modify</a> <a href="#delete" class="danger-text underline">Delete</a></small>
                                 </div>
                                 <p class="description">
                                     There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
@@ -100,7 +111,7 @@
             <div class="container">
                 <ul class="no-styling">
                     <li class="list-inline"><a href="index.html"><small>Home</small></a></li>
-                    <li class="list-inline"><a href="#about"><small>About</small></a></li>
+                    <li class="list-inline"><a href="about.html"><small>About</small></a></li>
                     <li class="list-inline"><small>&copy; 2018 MyDiary</small></li>
                 </ul>
             </div>
