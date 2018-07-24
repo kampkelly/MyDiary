@@ -1,5 +1,4 @@
-.white-forms {
-  width: 100%;
+.grid-container > div {
   margin: auto;
 }
 
@@ -8,9 +7,6 @@
 }
 #add form .field {
   padding: 10px;
-}
-#add form .field .control-form, #add form .field button {
-  width: 100%;
 }
 #add form button {
   color: white;
