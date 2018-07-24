@@ -95,17 +95,12 @@ form fieldset {
   background: #E1E1E1;
   border-radius: 2px;
 }
-.white-forms .field {
-  background: white;
-  border: 1px solid #fafafa;
-}
 .white-forms .field label {
-  color: #052F60;
+  color: white;
   font-weight: bold;
 }
 .white-forms .field .control-form {
-  color: white;
-  background: #052F60;
+  background: white;
 }
 .white-forms .field .control-form:focus {
   background: #d0d0d0;

@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 			document.querySelector('#carousel > ul li:nth-child(2) h4').style.color = '#DFAC2C';
 			document.querySelector('#carousel > ul li:nth-child(1) h4').style.color = '#052F60';
 			document.querySelector('#carousel > ul li:nth-child(3) h4').style.color = '#052F60';
-		}, 0);
+		}, 3000);
 		setTimeout(() => {
 			$('.img1-container').fadeOut('fast');
 			$('.img2-container').fadeOut('fast');
@@ -41,17 +41,16 @@ document.addEventListener("DOMContentLoaded",()=>{
 			document.querySelector('#carousel > ul li:nth-child(3) h4').style.color = '#DFAC2C';
 			document.querySelector('#carousel > ul li:nth-child(1) h4').style.color = '#052F60';
 			document.querySelector('#carousel > ul li:nth-child(2) h4').style.color = '#052F60';
-		}, 6000);
+		}, 7000);
 		setTimeout(() => {
-			$('.img1-container').fadeOut('fast');
+			$('.img2-container').fadeOut('fast');
 			$('.img3-container').fadeOut('fast');
-			$('.img2-container').fadeIn('fast');
+			$('.img1-container').fadeIn('fast');
 			document.querySelector('#carousel > ul li:nth-child(2) h4').style.color = '#DFAC2C';
 			document.querySelector('#carousel > ul li:nth-child(1) h4').style.color = '#052F60';
 			document.querySelector('#carousel > ul li:nth-child(3) h4').style.color = '#052F60';
-		}, 9000);
-		console.log('some');
-	}, 12000);
+		}, 11000);
+	}, 11000);
 	//slider animations
 });
 document.getElementById("change_settings").addEventListener("click", () => {

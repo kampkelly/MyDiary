@@ -1,3 +1,11 @@
+main {
+  background-image: url("../images/2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat-x: no-repeat;
+  background-repeat-y: no-repeat;
+}
+
 #profile ul li {
   margin-bottom: 10px;
 }
