@@ -14,49 +14,35 @@
         <link rel="stylesheet" href="stylesheets/edit-profile.css">
     </head>
     <body>
-        <header>
+		<header>
             <div class="container grid-container">
                     <div class="col-2-6 col-6-6-xs col-6-6-md">
-                        <h1 class="text-center"><a href="index.html" class="white-text">My<span>Diary</span></a></h1>
+                        <h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1>
                     </div>
                     <div class="col-4-6 col-6-6-xs col-6-6-md">
                         <nav class="desktop">
-                            <ul class="no-styling flex justify-items-between">
-                                <li class="list-inline"><a href="index.html">Home</a></li>
-                                <li class="list-inline"><a href="add.html">Add an entry</a></li>
-                                <li class="list-inline"><a href="signup.html">Signup</a></li>
+                            <ul class="no-styling flex justify-items-around">
+                                <li class="list-inline"><a href="dashboard.html">Dashboard</a></li>
+								<li class="list-inline"><a href="signup.html">Signup</a></li>
                                 <li class="list-inline"><a href="signin.html">Signin</a></li>
                                 <li class="list-inline"><a href="profile.html">My Profile</a></li>
-                                <li class="list-inline"><a href="#logout">Logout</a></li>
-                                <li class="list-inline" id="search">
-                                    <div>
-                                        <input type="text" placeholder="search entries.."/>
-                                        <input type="submit" value=" "><img src="images/search-button.png" />
-                                    </div>
-                                </li>
+                                <li class="list-inline"><a href="#">Logout</a></li>
                             </ul>
                         </nav>
                         <nav class="mobile">
-                            <div class="menu-button">
+                            <div class="menu-button" id="menu-button">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </div>
                             <div>
                                 <ul class="no-styling flex text-center">
-                                    <span class="menu-button-close">X</span>
-                                    <li><h1 class="text-center"><a href="index.html" class="white-text">My<span>Diary</span></a></h1></li>
-                                    <li class="list-inline" id="search">
-                                        <div>
-                                            <input type="text" placeholder="search entries.."/>
-                                            <input type="submit" value=" "><img src="images/search-button.png" />
-                                        </div>
-                                    </li>
-                                    <li class=""><a href="index.html">Home</a></li>
-                                    <li class=""><a href="add.html">Add an entry</a></li>
+                                    <span class="menu-button-close" id="menu-button-close">X</span>
+                                    <li><h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1></li>
+                                    <li class=""><a href="dashboard.html">Dashboard</a></li>
+									<li class="list-inline"><a href="signup.html">Signup</a></li>
+	                                <li class="list-inline"><a href="signin.html">Signin</a></li>
                                     <li class=""><a href="profile.html">My Profile</a></li>
-                                    <li class=""><a href="signup.html">Signup</a></li>
-                                    <li class=""><a href="signin.html">Signin</a></li>
                                     <li class=""><a href="about.html">About</a></li>
                                     <li class=""><a href="#logout">Logout</a></li>
                                 </ul>
@@ -120,7 +106,7 @@
         <footer>
             <div class="container">
                 <ul class="no-styling">
-                    <li class="list-inline"><a href="index.html"><small>Home</small></a></li>
+                    <li class="list-inline"><a href="dashboard.html"><small>Dashboard</small></a></li>
                     <li class="list-inline"><a href="about.html"><small>About</small></a></li>
                     <li class="list-inline"><small>&copy; 2018 MyDiary</small></li>
                 </ul>
