@@ -1,6 +1,10 @@
 #profile ul li {
   margin-bottom: 10px;
 }
+#profile .form-cover {
+  background: rgba(107, 101, 101, 0.3);
+  margin: auto;
+}
 
 #profile_details {
   border-bottom: 1px solid #e9e9e9;

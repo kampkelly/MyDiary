@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 document.getElementById("change_settings").addEventListener("click", () => {
 	document.querySelectorAll('#profile #settings form input[type="time"]')[0].removeAttribute("disabled");
 	document.querySelectorAll('#profile #settings form button')[0].removeAttribute("disabled");
-	document.querySelectorAll('#profile #settings form input[type="time"]')[0].style.backgroundColor = '#052F60';
+	document.querySelectorAll('#profile #settings form input[type="time"]')[0].style.backgroundColor = 'white';
 	document.querySelectorAll('#profile #settings form button')[0].style.backgroundColor = '#052F60';
 	document.querySelectorAll('#profile #settings form button')[0].style.color = 'white';
 	document.querySelectorAll('#profile #settings form button')[0].addEventListener("mouseover", () => {

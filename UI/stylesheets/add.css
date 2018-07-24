@@ -9,11 +9,12 @@
   padding: 10px;
 }
 #add form button {
+  background-color: #052F60;
   color: white;
 }
 #add form button:hover {
-  color: #DFAC2C;
-  background: white;
+  background-color: #0d529d;
+  color: white;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
