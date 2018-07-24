@@ -12,3 +12,12 @@
 #add form .field .control-form, #add form .field button {
   width: 100%;
 }
+#add form button {
+  color: white;
+}
+#add form button:hover {
+  color: #DFAC2C;
+  background: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}

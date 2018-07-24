@@ -45,8 +45,8 @@ form .field a:hover {
   color: #DFAC2C;
 }
 form .button-white {
-  background-color: white;
-  color: #052F60;
+  background-color: #052F60;
+  color: white;
 }
 form .button-white:hover {
   background-color: #d0d0d0;
@@ -55,11 +55,21 @@ form .button-white:hover {
   transition: 1s;
 }
 form .button-primary {
-  background-color: #052F60;
+  background-color: #052F60 !important;
   color: white;
   border: none;
 }
 form .button-primary:hover {
+  background-color: #308de1;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+form .button-cancel {
+  background-color: #a1020c !important;
+  color: white;
+  border: none;
+}
+form .button-cancel:hover {
   background-color: #308de1;
   -webkit-transition: 1s;
   transition: 1s;

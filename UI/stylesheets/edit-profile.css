@@ -25,7 +25,9 @@
   background: #9d9d9d;
 }
 #edit-profile .form-cover .field button:hover {
-  color: white;
+  color: #DFAC2C;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 #edit-profile [class*='col-'] {
   margin: auto;
