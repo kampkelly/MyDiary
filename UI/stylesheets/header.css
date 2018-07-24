@@ -2,6 +2,7 @@
 header {
   height: 80px;
   background-color: #052F60;
+  z-index: 100;
 }
 header h1 span {
   color: #DFAC2C;
