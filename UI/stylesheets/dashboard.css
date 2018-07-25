@@ -5,6 +5,8 @@ body {
   background: -webkit-gradient(linear, left top, right top, from(#E8CBC0), to(#636FA4));
   background: linear-gradient(to right, #E8CBC0, #636FA4);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-gradient(linear, left top, left bottom, from(#eef5fe), color-stop(transparent), to(#cde3fc));
+  background: linear-gradient(#eef5fe, transparent, #cde3fc);
 }
 
 main {
@@ -42,7 +44,7 @@ main {
   height: 430px;
   width: 100%;
   margin: auto;
-  border: 5px solid #f0f2f0;
+  border: 2px solid #f0f2f0;
 }
 #dashboard #right #carousel .slideshow {
   position: absolute;

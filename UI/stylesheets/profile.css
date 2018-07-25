@@ -6,6 +6,10 @@ main {
   background-repeat-y: no-repeat;
 }
 
+#profile {
+  width: 80%;
+  margin: auto;
+}
 #profile ul li {
   margin-bottom: 10px;
 }
@@ -21,6 +25,8 @@ main {
 #settings form {
   color: gray;
   padding: 10px;
+  width: 70%;
+  margin: auto;
 }
 #settings form .field {
   background: none;
@@ -35,8 +41,8 @@ main {
 }
 
 @media (min-width: 0px) and (max-width: 599px) {
-  #profile_details, #settings {
-    padding-left: 20px;
+  form {
+    width: 90%;
   }
 }
 @media (min-width: 600px) and (max-width: 900px) {
