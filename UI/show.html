@@ -14,49 +14,35 @@
         <link rel="stylesheet" href="stylesheets/show.css">
     </head>
     <body>
-        <header>
+		<header>
             <div class="container grid-container">
                     <div class="col-2-6 col-6-6-xs col-6-6-md">
-                        <h1 class="text-center"><a href="index.html" class="white-text">My<span>Diary</span></a></h1>
+                        <h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1>
                     </div>
                     <div class="col-4-6 col-6-6-xs col-6-6-md">
                         <nav class="desktop">
-                            <ul class="no-styling flex justify-items-between">
-                                <li class="list-inline"><a href="index.html">Home</a></li>
-                                <li class="list-inline"><a href="add.html">Add an entry</a></li>
-                                <li class="list-inline"><a href="signup.html">Signup</a></li>
+                            <ul class="no-styling flex justify-items-around">
+                                <li class="list-inline"><a href="dashboard.html">Dashboard</a></li>
+								<li class="list-inline"><a href="signup.html">Signup</a></li>
                                 <li class="list-inline"><a href="signin.html">Signin</a></li>
                                 <li class="list-inline"><a href="profile.html">My Profile</a></li>
                                 <li class="list-inline"><a href="#">Logout</a></li>
-                                <li class="list-inline" id="search">
-                                    <div>
-                                        <input type="text" placeholder="search entries.."/>
-                                        <input type="submit" value=" "><img src="images/search-button.png" />
-                                    </div>
-                                </li>
                             </ul>
                         </nav>
                         <nav class="mobile">
-                            <div class="menu-button">
+                            <div class="menu-button" id="menu-button">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </div>
                             <div>
                                 <ul class="no-styling flex text-center">
-                                    <span class="menu-button-close">X</span>
-                                    <li><h1 class="text-center"><a href="index.html" class="white-text">My<span>Diary</span></a></h1></li>
-                                    <li class="list-inline" id="search">
-                                        <div>
-                                            <input type="text" placeholder="search entries.."/>
-                                            <input type="submit" value=" "><img src="images/search-button.png" />
-                                        </div>
-                                    </li>
-                                    <li class=""><a href="index.html">Home</a></li>
-                                    <li class=""><a href="add.html">Add an entry</a></li>
+                                    <span class="menu-button-close" id="menu-button-close">X</span>
+                                    <li><h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1></li>
+                                    <li class=""><a href="dashboard.html">Dashboard</a></li>
+									<li class="list-inline"><a href="signup.html">Signup</a></li>
+	                                <li class="list-inline"><a href="signin.html">Signin</a></li>
                                     <li class=""><a href="profile.html">My Profile</a></li>
-                                    <li class=""><a href="signup.html">Signup</a></li>
-                                    <li class=""><a href="signin.html">Signin</a></li>
                                     <li class=""><a href="about.html">About</a></li>
                                     <li class=""><a href="#logout">Logout</a></li>
                                 </ul>
@@ -69,39 +55,19 @@
         <main>
             <div class="main container">
                 <div class="grid-container">
-                    <div class="col-4-6 col-6-6-xs col-6-6-md whie-background">
+                    <div class="col-6-6 col-6-6-xs col-6-6-md whie-background">
                         <section id="show">
                             <article>
-                                <h3 class="title text-center">Where can I get some?</h3>
+                                <h3 class="title text-center white-text">Where can I get some?</h3>
                                 <span class="small-text light-text primary-text">1 day ago</span>
                                 <div>
-                                    <small><a href="edit.html" class="underline">Modify</a> <a href="#delete" class="danger-text underline">Delete</a></small>
+                                    <small><a href="edit.html" class="">Modify</a> <a href="#delete" class="danger-text ">Delete</a></small>
                                 </div>
-                                <p class="description">
+                                <p class="description white-text">
                                     There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
                                 </p>
                             </article>
                         </section>
-                    </div>
-                    <div class="col-2-6 col-6-6-xs col-6-6-md">
-                        <aside class="sidebar">
-                            <h4 class="text-center">Recent Entries</h4>
-                            <hr />
-                            <ul class="no-styling">
-                                <li>
-                                    <a href="show.html"><h4 class="title">Where can I get some?</h4></a>
-                                </li>
-                                <li>
-                                    <a href="show.html"><h4 class="title">Where does it come from?</h4></a>
-                                </li>
-                                <li>
-                                    <a href="show.html"><h4 class="title">Why do we use it?</h4></a>
-                                </li>
-                                <li>
-                                    <a href="show.html"><h4 class="title">What is Lorem Ipsum?</h4></a>
-                                </li>
-                            </ul>
-                        </aside>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,21 @@
+main {
+  background-image: url("../images/2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat-x: no-repeat;
+  background-repeat-y: no-repeat;
+}
+
+#profile {
+  width: 80%;
+  margin: auto;
+}
 #profile ul li {
   margin-bottom: 10px;
+}
+#profile .form-cover {
+  background: rgba(107, 101, 101, 0.3);
+  margin: auto;
 }
 
 #profile_details {
@@ -9,6 +25,8 @@
 #settings form {
   color: gray;
   padding: 10px;
+  width: 70%;
+  margin: auto;
 }
 #settings form .field {
   background: none;
@@ -23,8 +41,8 @@
 }
 
 @media (min-width: 0px) and (max-width: 599px) {
-  #profile_details, #settings {
-    padding-left: 20px;
+  form {
+    width: 90%;
   }
 }
 @media (min-width: 600px) and (max-width: 900px) {
