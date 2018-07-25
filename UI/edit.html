@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -15,49 +15,35 @@
         <link rel="stylesheet" href="stylesheets/add.css">
     </head>
     <body>
-        <header>
+		<header>
             <div class="container grid-container">
                     <div class="col-2-6 col-6-6-xs col-6-6-md">
-                        <h1 class="text-center"><a href="index.html" class="white-text">My<span>Diary</span></a></h1>
+                        <h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1>
                     </div>
                     <div class="col-4-6 col-6-6-xs col-6-6-md">
                         <nav class="desktop">
-                            <ul class="no-styling flex justify-items-between">
-                                <li class="list-inline"><a href="index.html">Home</a></li>
-                                <li class="list-inline"><a href="add.html">Add an entry</a></li>
-                                <li class="list-inline"><a href="signup.html">Signup</a></li>
+                            <ul class="no-styling flex justify-items-around">
+                                <li class="list-inline"><a href="dashboard.html">Dashboard</a></li>
+								<li class="list-inline"><a href="signup.html">Signup</a></li>
                                 <li class="list-inline"><a href="signin.html">Signin</a></li>
                                 <li class="list-inline"><a href="profile.html">My Profile</a></li>
                                 <li class="list-inline"><a href="#">Logout</a></li>
-                                <li class="list-inline" id="search">
-                                    <div>
-                                        <input type="text" placeholder="search entries.."/>
-                                        <input type="submit" value=" "><img src="images/search-button.png" />
-                                    </div>
-                                </li>
                             </ul>
                         </nav>
                         <nav class="mobile">
-                            <div class="menu-button">
+                            <div class="menu-button" id="menu-button">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </div>
                             <div>
                                 <ul class="no-styling flex text-center">
-                                    <span class="menu-button-close">X</span>
-                                    <li><h1 class="text-center"><a href="index.html" class="white-text">My<span>Diary</span></a></h1></li>
-                                    <li class="list-inline" id="search">
-                                        <div>
-                                            <input type="text" placeholder="search entries.."/>
-                                            <input type="submit" value=" "><img src="images/search-button.png" />
-                                        </div>
-                                    </li>
-                                    <li class=""><a href="index.html">Home</a></li>
-                                    <li class=""><a href="add.html">Add an entry</a></li>
+                                    <span class="menu-button-close" id="menu-button-close">X</span>
+                                    <li><h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1></li>
+                                    <li class=""><a href="dashboard.html">Dashboard</a></li>
+									<li class="list-inline"><a href="signup.html">Signup</a></li>
+	                                <li class="list-inline"><a href="signin.html">Signin</a></li>
                                     <li class=""><a href="profile.html">My Profile</a></li>
-                                    <li class=""><a href="signup.html">Signup</a></li>
-                                    <li class=""><a href="signin.html">Signin</a></li>
                                     <li class=""><a href="about.html">About</a></li>
                                     <li class=""><a href="#logout">Logout</a></li>
                                 </ul>
@@ -72,9 +58,9 @@
                 <div class="grid-container">
                     <div class="col-4-6 col-6-6-xs col-6-6-md">
                         <section id="add">
-                            <div class="white-forms text-center">
+                            <div class="white-forms form-cover text-center">
                                 <form class="add_form" id="add-form">
-                                    <h3 class="title text-center">Edit This Entry</h3>
+                                    <h3 class="title text-center white-text">Edit This Entry</h3>
                                     <p class="danger-text form_error_text"><small></small></p>
                                     <p class="success-text form_success_text"><small></small></p>
                                     <div class="field grid-container">
@@ -94,34 +80,20 @@
                                         </div>
                                     </div>
                                     <div class="field grid-container">
-                                        <div class="col-2-6 col-6-6-md col-6-6-xs"></div>
-                                        <div class="col-6-6 col-6-6-md col-6-6-xs">
-                                            <button type="submit" class="submit-button button-primary" onclick="editEntry()">Update Diary</button>
+										<div class="col-1-6 col-6-6-md col-6-6-xs"></div>
+										<div class="col-3-6 col-6-6-md col-6-6-xs">
+                                            <button type="submit" class="submit-button button-white" onclick=" editEntry()">Update Diary</button>
+                                        </div>
+                                        <div class="col-2-6 col-6-6-md col-6-6-xs">
+                                            <button type="submit" class="submit-button button-cancel mt-4-xs mt-4-md" onclick=" window.history.go(-1)">Cancel</button>
+                                        </div>
+                                        <div class="col-3-6 col-6-6-md col-6-6-xs">
+
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </section>
-                    </div>
-                    <div class="col-2-6 col-6-6-xs col-6-6-md">
-                        <aside class="sidebar">
-                            <h4 class="text-center">Recent Entries</h4>
-                            <hr />
-                            <ul class="no-styling">
-                                <li>
-                                    <a href="show.html"><h4 class="title">Where can I get some?</h4></a>
-                                </li>
-                                <li>
-                                    <a href="show.html"><h4 class="title">Where does it come from?</h4></a>
-                                </li>
-                                <li>
-                                    <a href="show.html"><h4 class="title">Why do we use it?</h4></a>
-                                </li>
-                                <li>
-                                    <a href="show.html"><h4 class="title">What is Lorem Ipsum?</h4></a>
-                                </li>
-                            </ul>
-                        </aside>
                     </div>
                 </div>
             </div>
@@ -130,7 +102,7 @@
         <footer>
             <div class="container">
                 <ul class="no-styling">
-                    <li class="list-inline"><a href="index.html"><small>Home</small></a></li>
+                    <li class="list-inline"><a href="dashboard.html"><small>Dashboard</small></a></li>
                     <li class="list-inline"><a href="about.html"><small>About</small></a></li>
                     <li class="list-inline"><small>&copy; 2018 MyDiary</small></li>
                 </ul>

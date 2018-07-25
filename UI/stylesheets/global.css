@@ -26,6 +26,10 @@
   color: white;
 }
 
+.danger-text {
+  color: red;
+}
+
 .primary-text {
   color: #052F60;
 }
@@ -36,6 +40,10 @@
 
 .success-text {
   color: green;
+}
+
+.light-white-text {
+  color: #e9e9e9;
 }
 
 .danger-text {
@@ -195,7 +203,7 @@ a {
 }
 
 .active a {
-  background-color: #8c8c8c;
+  background-color: #DFAC2C;
   color: white;
 }
 
@@ -272,6 +280,14 @@ footer li:last-of-type small {
   .col-6-6-xs {
     width: 100% !important;
   }
+
+  .mt-2-xs {
+    margin-top: 4px;
+  }
+
+  .mt-4-xs {
+    margin-top: 8px;
+  }
 }
 @media (min-width: 600px) and (max-width: 900px) {
   .col-1-6-md {
@@ -296,5 +312,13 @@ footer li:last-of-type small {
 
   .col-6-6-md {
     width: 100% !important;
+  }
+
+  .mt-2-md {
+    margin-top: 4px;
+  }
+
+  .mt-4-md {
+    margin-top: 8px;
   }
 }
