@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="My diary for personal thoughts and events">
+        <meta name="keywords" content="diary, events, activities">
+        <meta name="author" content="Runor Adjekpiyede">
+        <title>MyDiary</title>
+        <link rel="stylesheet" href="stylesheets/global.css">
+        <link rel="stylesheet" href="stylesheets/header.css">
+		<link rel="stylesheet" href="stylesheets/sidebar.css">
+        <link rel="stylesheet" href="stylesheets/dashboard.css">
+    </head>
+    <body onload="checkNotice()">
+        <header>
+            <div class="container grid-container">
+                    <div class="col-2-6 col-6-6-xs col-6-6-md">
+                        <h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1>
+                    </div>
+                    <div class="col-4-6 col-6-6-xs col-6-6-md">
+                        <nav class="desktop">
+                            <ul class="no-styling flex justify-items-around">
+                                <li class="list-inline active"><a href="dashboard.html">Dashboard</a></li>
+								<li class="list-inline"><a href="signup.html">Signup</a></li>
+                                <li class="list-inline"><a href="signin.html">Signin</a></li>
+                                <li class="list-inline"><a href="profile.html">My Profile</a></li>
+                                <li class="list-inline"><a href="#">Logout</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="mobile">
+                            <div class="menu-button" id="menu-button">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div>
+                                <ul class="no-styling flex text-center">
+                                    <span class="menu-button-close" id="menu-button-close">X</span>
+                                    <li><h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1></li>
+                                    <li class="active"><a href="dashboard.html">Dashboard</a></li>
+									<li class="list-inline"><a href="signup.html">Signup</a></li>
+	                                <li class="list-inline"><a href="signin.html">Signin</a></li>
+                                    <li class=""><a href="profile.html">My Profile</a></li>
+                                    <li class=""><a href="about.html">About</a></li>
+                                    <li class=""><a href="#logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+            </div>
+        </header>
+        <!--main content -->
+        <main>
+			<div id="flash-message">
+				<span onclick="closeNotification()">X</span>
+				<p></p>
+			</div>
+            <div class="main container">
+                <section id="dashboard">
+					<div class="grid-container">
+						<div class="col-2-6 col-6-6-md col-6-6-xs" id="left">
+							<div class="text-center">
+								<button onclick="goToNewEntryPage()">Create A New Entry</button>
+								<button onclick="viewEntries()">View Entries</button> <br />
+								<aside class="sidebar">
+		                            <h4 class="text-center">Recent Entries</h4>
+		                            <hr />
+		                            <ul class="no-styling">
+		                                <li>
+		                                    <a href="show.html"><h4 class="title">Where can I get some?</h4></a>
+		                                </li>
+		                                <li>
+		                                    <a href="show.html"><h4 class="title">Where does it come from?</h4></a>
+		                                </li>
+		                                <li>
+		                                    <a href="show.html"><h4 class="title">Why do we use it?</h4></a>
+		                                </li>
+		                                <li>
+		                                    <a href="show.html"><h4 class="title">What is Lorem Ipsum?</h4></a>
+		                                </li>
+		                            </ul>
+		                        </aside>
+							</div>
+						</div>
+						<div class="col-4-6 col-6-6-md col-6-6-xs" id="right">
+							<h2 class="text-center" id="title">Welcome To Your Daily Journal</h2>
+							<div id="carousel">
+								<div class="img1-container slideshow">
+									<div class="content p-2">
+										<h1 class="text-center white-text">Mark Down Important Events</h1>
+										<p class="text-center white-text"></p>
+									</div>
+									<img src="images/slide1.jpg">
+								</div>
+								<div class="img2-container slideshow">
+									<div class="content p-2">
+										<h1 class="text-center white-text">Organise Your Life Events</h1>
+										<p class="text-center white-text"></p>
+									</div>
+									<img src="images/slide2.jpg">
+								</div>
+								<div class="img3-container slideshow">
+									<div class="content p-2">
+										<h1 class="text-center white-text">Keep a diary, and someday it'll keep you</h1>
+										<p class="text-center white-text"></p>
+									</div>
+									<img src="images/slide3.jpg">
+								</div>
+								<ul class="no-styling">
+									<li><h4 class="text-info"><b>01</b></h4></li>
+									<li><h4 class="text-info"><b>02</b></h4></li>
+									<li><h4 class="text-info"><b>03</b></h4></li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+                </section>
+				<section id="index">
+                    <h3 class="underline text-center">Diary Entries</h3>
+                    <ul class="no-styling">
+                        <li>
+                            <h4 class="title"><a href="show.html">Where can I get some?</a> <span class="small-text light-text">1 day ago</span></h4>
+                            <p class="description">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour... <a href="show.html">Read more...</a></p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a href="show.html">Where does it come from?</a> <span class="small-text light-text">2 days ago</span></h4>
+                            <p class="description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old... <a href="show.html">Read more...</a></p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a href="show.html">Why do we use it?</a> <span class="small-text light-text">3 days ago</span></h4>
+                            <p class="description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is... <a href="show.html">Read more...</a></p>
+                        </li>
+                        <li>
+                            <h4 class="title"><a href="show.html">What is Lorem Ipsum?</a> <span class="small-text light-text">4 days ago</span></h4>
+                            <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s... <a href="show.html">Read more...</a></p>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+        <!--main content -->
+        <footer>
+            <div class="container">
+                <ul class="no-styling">
+                    <li class="list-inline"><a href="dashboard.html"><small>Dashboard</small></a></li>
+                    <li class="list-inline"><a href="about.html"><small>About</small></a></li>
+                    <li class="list-inline"><small>&copy; 2018 MyDiary</small></li>
+                </ul>
+            </div>
+        </footer>
+        <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+        <script type="text/javascript" src="javascripts/header.js"></script>
+        <script type="text/javascript" src="javascripts/script.js"></script>
+    <body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="My diary for personal thoughts and events">
+        <meta name="keywords" content="diary, events, activities">
+        <meta name="author" content="Runor Adjekpiyede">
+        <title>MyDiary</title>
+        <link rel="stylesheet" href="stylesheets/global.css">
+        <link rel="stylesheet" href="stylesheets/header.css">
+        <link rel="stylesheet" href="stylesheets/sidebar.css">
+        <link rel="stylesheet" href="stylesheets/forms.css">
+        <link rel="stylesheet" href="stylesheets/profile.css">
+    </head>
+    <body>
+		<header>
+            <div class="container grid-container">
+                    <div class="col-2-6 col-6-6-xs col-6-6-md">
+                        <h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1>
+                    </div>
+                    <div class="col-4-6 col-6-6-xs col-6-6-md">
+                        <nav class="desktop">
+                            <ul class="no-styling flex justify-items-around">
+                                <li class="list-inline"><a href="dashboard.html">Dashboard</a></li>
+								<li class="list-inline"><a href="signup.html">Signup</a></li>
+                                <li class="list-inline"><a href="signin.html">Signin</a></li>
+                                <li class="list-inline active"><a href="profile.html">My Profile</a></li>
+                                <li class="list-inline"><a href="#">Logout</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="mobile">
+                            <div class="menu-button" id="menu-button">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div>
+                                <ul class="no-styling flex text-center">
+                                    <span class="menu-button-close" id="menu-button-close">X</span>
+                                    <li><h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1></li>
+                                    <li class=""><a href="dashboard.html">Dashboard</a></li>
+									<li class="list-inline"><a href="signup.html">Signup</a></li>
+	                                <li class=""><a href="signin.html">Signin</a></li>
+                                    <li class="active"><a href="profile.html">My Profile</a></li>
+                                    <li class=""><a href="about.html">About</a></li>
+                                    <li class=""><a href="#logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+            </div>
+        </header>
+        <!--main content -->
+        <main>
+            <div class="main container">
+                <div class="grid-container" id="profile">
+                    <div class="col-6-6 col-6-6-xs col-6-6-md">
+                        <section id="profile_details">
+                            <h4 class="underline title text-center">My Profile Details</h4>
+                            <ul class="no-styling text-center">
+                                <li class="light-white-text"><strong>Email:</strong> kampkellykeys@gmail.com</li>
+                                <li class="light-white-text"><strong>Name:</strong> Runor Adjekpiyede</li>
+                                <li style="color:#e9e9e9;"><strong>Date of birth:</strong> July 1994</li>
+                                <li style="color:#e9e9e9;"><strong>Date Joined:</strong> 08/07/2018</li>
+                            </ul>
+							<div class="text-center">
+								<a href="edit-profile.html" class="underline"><small>Edit Profile</small></a>
+	                            <p class="light-white-text text-center"><small>Total number of entries in diary: 4</small></p>
+							</div>
+                        </section>
+                        <section id="settings">
+							<div class="text-center">
+								<h4 class="underline title text-center">Notification Settings</h4>
+	                            <p class="danger-text text-center">Reminder has been set to <span id="notification_time">08:00</span> every day</p>
+								<a href="#" id="change_settings" class="underline"><small>Change notification setting</small></a>
+							</div>
+                            <div class="grid-container">
+                                <div class="col-6-6 col-6-6-md col-6-6-xs">
+                                    <form class="signin_form blue-forms form-cover" id="signin-form">
+                                        <p class="danger-text form_error_text"><small></small></p>
+                                        <p class="success-text form_success_text"><small></small></p>
+                                        <div class="field grid-container">
+                                            <div class="col-6-6 col-6-6-md col-6-6-xs">
+                                                <label class="white-text">Date:</label>
+                                            </div>
+                                            <div class="col-6-6 col-6-6-md col-6-6-xs">
+                                                <input type="time" required="true" class="control-form" id="settings" placeholder="Enter Date" autocomplete="settings" disabled="true" value="08:00" />
+                                            </div>
+                                        </div>
+                                        <div class="field grid-container">
+                                            <div class="col-2-6 col-6-6-md col-6-6-xs"></div>
+                                            <div class="col-6-6 col-6-6-md col-6-6-xs">
+                                                <button type="submit" disabled="true" class="submit-button button-primary" onclick="saveSettings()">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <!-- <div class="col-2-6 col-6-6-xs col-6-6-md">
+                        <aside class="sidebar">
+                            <h4 class="text-center">Recent Entries</h4>
+                            <hr />
+                            <ul class="no-styling">
+                                <li>
+                                    <a href="show.html"><h4 class="title">Where can I get some?</h4></a>
+                                </li>
+                                <li>
+                                    <a href="show.html"><h4 class="title">Where does it come from?</h4></a>
+                                </li>
+                                <li>
+                                    <a href="show.html"><h4 class="title">Why do we use it?</h4></a>
+                                </li>
+                                <li>
+                                    <a href="show.html"><h4 class="title">What is Lorem Ipsum?</h4></a>
+                                </li>
+                            </ul>
+                        </aside>
+                    </div> -->
+                </div>
+            </div>
+        </main>
+        <!--main content -->
+        <footer>
+			<div class="container">
+                <ul class="no-styling">
+                    <li class="list-inline"><small>&copy; 2018 MyDiary</small></li>
+                    <li class="list-inline"><small>Runor Adjekpiyede</small></li>
+                </ul>
+            </div>
+        </footer>
+        <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+        <script type="text/javascript" src="javascripts/header.js"></script>
+        <script type="text/javascript" src="javascripts/script.js"></script>
+    <body>
+</html>

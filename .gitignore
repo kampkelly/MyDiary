@@ -1,2 +1,4 @@
-UI/stylesheets/*.scss
 UI/stylesheets/*.css.map
+FULLCONNECTION/stylesheets/*.css.map
+FULLCONNECTION/javascripts/*.js.map
+node_modules
