@@ -54,6 +54,35 @@
   font-size: 0.7em;
 }
 
+#flash-message {
+  background: rgba(11, 136, 40, 0.95);
+  padding: 0px 0px 0px 0px;
+  width: 270px;
+  margin: auto;
+  height: 50px;
+  border-radius: 1px;
+  display: none;
+}
+#flash-message span {
+  float: right;
+  color: #0A4C2B;
+  font-weight: 800;
+  padding-right: 8px;
+  padding-top: 5px;
+  font-size: 0.7em;
+  cursor: pointer;
+}
+#flash-message span:hover {
+  color: white;
+}
+#flash-message p {
+  font-size: 1em;
+  margin: 0px;
+  padding: 8px 8px 8px 8px;
+  color: white;
+  text-align: center;
+}
+
 .primary-background {
   background-color: #052F60;
   color: white;

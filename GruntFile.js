@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 	        dist: {
 				files: [{
 			      expand: true,
-			      cwd: 'es6',
+			      cwd: 'FULLCONNECTION/javascripts/es6',
 			      src: ['*.js'],
 			      dest: 'FULLCONNECTION/javascripts',
 			      ext: '.js'
@@ -19,17 +19,16 @@ module.exports = function(grunt) {
 			// options: {
 			// 	fix: true
 			// },
-            target: ['es6/*.js']
+            target: ['FULLCONNECTION/javascripts/es6/*.js']
        	},
 		watch: {
 			scripts: {
-				files: ["es6/*.js"],
+				files: ["FULLCONNECTION/javascripts/es6/*.js"],
 				tasks: ["eslint", "babel"]
 			}
 		}
     });
 
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-mocha-test');
     grunt.registerTask("default", ["eslint", "babel"]);
 };
