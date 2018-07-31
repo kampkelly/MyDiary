@@ -1,5 +1,4 @@
 UI/stylesheets/*.css.map
 FULLCONNECTION/stylesheets/*.css.map
-FULLCONNECTION/javascripts/script.js
 FULLCONNECTION/javascripts/*.js.map
 node_modules
