@@ -80,7 +80,7 @@
                                     <label class="white-text">Date of Birth</label>
                                 </div>
                                 <div class="col-4-6 col-6-6-md col-6-6-xs">
-                                    <input type="date" class="control-form" id="date_of_birth" autocomplete="date_of_birth" required="true" pattern="[a-z|A-Z|\d]{1,15}" />
+                                    <input type="date" class="control-form" id="date_of_birth" autocomplete="date_of_birth" required="true" max="2000-01-01" pattern="[a-z|A-Z|\d]{1,15}" />
                                 </div>
                             </div>
                             <div class="field grid-container">
@@ -104,8 +104,8 @@
 	                                <div class="col-3-6 col-6-6-md col-6-6-xs">
 	                                    <button type="submit" class="submit-button button-white" id="dkkd" onclick="submitSignup()">Create Account</button>
 	                                </div>
-									<div class="col-2-6 col-6-6-md col-6-6-xs">
-										<button type="submit" class="submit-button button-cancel mt-2-xs" onclick=" window.history.go(-1)">Cancel</button>
+									<div class="col-2-6 col-6-6-md col-6-6-xs mt-4-md mt-4-xs">
+										<button type="submit" class="submit-button button-cancel" onclick=" window.history.go(-1)">Cancel</button>
 									</div>
 	                            </div>
                             <div class="field grid-container">
@@ -123,9 +123,8 @@
         <footer>
             <div class="container">
                 <ul class="no-styling">
-                    <li class="list-inline"><a href="index.html"><small>Home</small></a></li>
-                    <li class="list-inline"><a href="about.html"><small>About</small></a></li>
                     <li class="list-inline"><small>&copy; 2018 MyDiary</small></li>
+                    <li class="list-inline"><small>Runor Adjekpiyede</small></li>
                 </ul>
             </div>
         </footer>

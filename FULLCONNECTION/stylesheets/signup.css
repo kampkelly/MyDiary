@@ -25,4 +25,8 @@ main h2 {
   #signup .form-cover {
     width: 80%;
   }
+  #signup button.button-white {
+    width: 79%;
+    margin-left: 20px;
+  }
 }
