@@ -1,0 +1,115 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="My diary for personal thoughts and events">
+        <meta name="keywords" content="diary, events, activities">
+        <meta name="author" content="Runor Adjekpiyede">
+        <title>MyDiary</title>
+        <link rel="stylesheet" href="stylesheets/global.css">
+        <link rel="stylesheet" href="stylesheets/header.css">
+        <link rel="stylesheet" href="stylesheets/sidebar.css">
+        <link rel="stylesheet" href="stylesheets/forms.css">
+        <link rel="stylesheet" href="stylesheets/add.css">
+    </head>
+    <body>
+		<header>
+            <div class="container grid-container">
+                    <div class="col-2-6 col-6-6-xs col-6-6-md">
+                        <h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1>
+                    </div>
+                    <div class="col-4-6 col-6-6-xs col-6-6-md">
+                        <nav class="desktop">
+                            <ul class="no-styling flex justify-items-around">
+                                <li class="list-inline"><a href="dashboard.html">Dashboard</a></li>
+								<li class="list-inline"><a href="signup.html">Signup</a></li>
+                                <li class="list-inline"><a href="signin.html">Signin</a></li>
+                                <li class="list-inline"><a href="profile.html">My Profile</a></li>
+                                <li class="list-inline"><a href="#">Logout</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="mobile">
+                            <div class="menu-button" id="menu-button">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div>
+                                <ul class="no-styling flex text-center">
+                                    <span class="menu-button-close" id="menu-button-close">X</span>
+                                    <li><h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1></li>
+                                    <li class=""><a href="dashboard.html">Dashboard</a></li>
+									<li class="list-inline"><a href="signup.html">Signup</a></li>
+	                                <li class="list-inline"><a href="signin.html">Signin</a></li>
+                                    <li class=""><a href="profile.html">My Profile</a></li>
+                                    <li class=""><a href="about.html">About</a></li>
+                                    <li class=""><a href="#logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+            </div>
+        </header>
+        <!--main content -->
+        <main>
+            <div class="main container">
+                <div class="grid-container">
+                    <div class="col-4-6 col-6-6-xs col-6-6-md">
+                        <section id="add">
+                            <div class="white-forms form-cover text-center">
+                                <form class="add_form" id="add-form">
+                                    <h3 class="title text-center white-text">Edit This Entry</h3>
+                                    <p class="danger-text form_error_text"><small></small></p>
+                                    <p class="success-text form_success_text"><small></small></p>
+                                    <div class="field grid-container">
+                                        <div class="col-2-6 col-6-6-md col-6-6-xs">
+                                            <label class="white-text">Title:</label>
+                                        </div>
+                                        <div class="col-4-6 col-6-6-md col-6-6-xs">
+                                            <input type="text" required="true" class="control-form" id="title" autocomplete="title" value="Where can I get some?" />
+                                        </div>
+                                    </div>
+                                    <div class="field grid-container">
+                                        <div class="col-2-6 col-6-6-md col-6-6-xs">
+                                            <label class="white-text">Description:</label>
+                                        </div>
+                                        <div class="col-4-6 col-6-6-md col-6-6-xs">
+                                            <textarea class="control-form" id="description" required="true" resize="no">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="field grid-container">
+										<div class="col-1-6 col-6-6-md col-6-6-xs"></div>
+										<div class="col-3-6 col-6-6-md col-6-6-xs">
+                                            <button type="submit" class="submit-button button-white" onclick=" editEntry()">Update Diary</button>
+                                        </div>
+                                        <div class="col-2-6 col-6-6-md col-6-6-xs">
+                                            <button type="submit" class="submit-button button-cancel mt-4-xs mt-4-md" onclick=" window.history.go(-1)">Cancel</button>
+                                        </div>
+                                        <div class="col-3-6 col-6-6-md col-6-6-xs">
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--main content -->
+        <footer>
+            <div class="container">
+                <ul class="no-styling">
+                    <li class="list-inline"><a href="dashboard.html"><small>Dashboard</small></a></li>
+                    <li class="list-inline"><a href="about.html"><small>About</small></a></li>
+                    <li class="list-inline"><small>&copy; 2018 MyDiary</small></li>
+                </ul>
+            </div>
+        </footer>
+        <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+        <script type="text/javascript" src="javascripts/header.js"></script>
+        <script type="text/javascript" src="javascripts/script.js"></script>
+    <body>
+</html>
