@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="My diary for personal thoughts and events">
+        <meta name="keywords" content="diary, events, activities">
+        <meta name="author" content="Runor Adjekpiyede">
+        <title>MyDiary</title>
+        <link rel="stylesheet" href="stylesheets/global.css">
+        <link rel="stylesheet" href="stylesheets/header.css">
+        <link rel="stylesheet" href="stylesheets/forms.css">
+        <link rel="stylesheet" href="stylesheets/edit-profile.css">
+    </head>
+    <body>
+		<header>
+            <div class="container grid-container">
+                    <div class="col-2-6 col-6-6-xs col-6-6-md">
+                        <h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1>
+                    </div>
+                    <div class="col-4-6 col-6-6-xs col-6-6-md">
+                        <nav class="desktop">
+                            <ul class="no-styling flex justify-items-around">
+                                <li class="list-inline"><a href="dashboard.html">Dashboard</a></li>
+								<li class="list-inline"><a href="signup.html">Signup</a></li>
+                                <li class="list-inline"><a href="signin.html">Signin</a></li>
+                                <li class="list-inline"><a href="profile.html">My Profile</a></li>
+                                <li class="list-inline"><a href="#">Logout</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="mobile">
+                            <div class="menu-button" id="menu-button">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div>
+                                <ul class="no-styling flex text-center">
+                                    <span class="menu-button-close" id="menu-button-close">X</span>
+                                    <li><h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1></li>
+                                    <li class=""><a href="dashboard.html">Dashboard</a></li>
+									<li class="list-inline"><a href="signup.html">Signup</a></li>
+	                                <li class="list-inline"><a href="signin.html">Signin</a></li>
+                                    <li class=""><a href="profile.html">My Profile</a></li>
+                                    <li class=""><a href="about.html">About</a></li>
+                                    <li class=""><a href="#logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+            </div>
+        </header>
+        <!--main content -->
+        <main>
+            <div class="main container">
+                <section class="grid-container" id="edit-profile">
+                    <div class="col-4-6 col-6-6-xs col-6-6-md">
+                            <div class="blue-forms form-cover text-center">
+                                <h3 class="underline title text-center">Edit My Profile</h3>
+                                <form class="edit-profile-form" id="edit-profile-form" onsubmit="edit_profile_form()">
+                                    <p class="danger-text form_error_text"><small></small></p>
+                                    <p class="success-text form_success_text"><small></small></p>
+                                    <div class="field grid-container">
+                                        <div class="col-2-6 col-6-6-md col-6-6-xs">
+                                            <label class="">Full Name:</label>
+                                        </div>
+                                        <div class="col-4-6 col-6-6-md col-6-6-xs">
+                                            <input type="text" required="true" class="control-form" id="signup_fullname" autocomplete="name" value="Runor Adjekpiyede" />
+                                        </div>
+                                    </div>
+                                    <div class="field grid-container">
+                                        <div class="col-2-6 col-6-6-md col-6-6-xs">
+                                            <label class="">Email Address:</label>
+                                        </div>
+                                        <div class="col-4-6 col-6-6-md col-6-6-xs">
+                                            <input type="email" required="true" class="control-form" id="signup_email" autocomplete="email" value="kamp@example.com" />
+                                        </div>
+                                    </div>
+                                    <div class="field grid-container">
+                                        <div class="col-2-6 col-6-6-md col-6-6-xs">
+                                            <label class="">Date of Birth:</label>
+                                        </div>
+                                        <div class="col-4-6 col-6-6-md col-6-6-xs">
+                                            <input type="date" class="control-form" id="signup_username" autocomplete="date" value="" pattern="[a-z|A-Z|\d]{1,15}" />
+                                        </div>
+                                    </div>
+                                    <div class="field grid-container">
+										<div class="col-1-6 col-6-6-md col-6-6-xs"></div>
+										<div class="col-3-6 col-6-6-md col-6-6-xs">
+                                            <button type="submit" class="submit-button button-white" onclick="updateProfile()">Update Profile</button>
+                                        </div>
+                                        <div class="col-2-6 col-6-6-md col-6-6-xs">
+                                            <button type="submit" class="submit-button  button-cancel mt-2-xs" onclick=" window.history.go(-1)">Cancel</button>
+                                        </div>
+                                        <div class="col-3-6 col-6-6-md col-6-6-xs">
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <!--main content -->
+        <footer>
+            <div class="container">
+                <ul class="no-styling">
+                    <li class="list-inline"><a href="dashboard.html"><small>Dashboard</small></a></li>
+                    <li class="list-inline"><a href="about.html"><small>About</small></a></li>
+                    <li class="list-inline"><small>&copy; 2018 MyDiary</small></li>
+                </ul>
+            </div>
+        </footer>
+        <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+        <script type="text/javascript" src="javascripts/header.js"></script>
+        <script type="text/javascript" src="javascripts/script.js"></script>
+    <body>
+</html>

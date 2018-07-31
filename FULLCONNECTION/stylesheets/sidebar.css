@@ -1,0 +1,52 @@
+/* sidebar */
+.sidebar {
+  height: 50vh;
+  padding: 10px;
+  margin-top: 10px;
+  background: #f2f2f2;
+}
+.sidebar ul {
+  padding: 10px;
+  border-radius: 10px;
+}
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+.sidebar ul li a {
+  display: block;
+  padding: 1px 10px 5px 10px;
+  border-radius: 10px;
+}
+.sidebar ul li a .title {
+  color: #DFAC2C;
+  margin-bottom: 3px;
+  margin-top: 7px;
+}
+.sidebar ul li a .title:hover {
+  color: #052F60;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.sidebar ul li a:hover {
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+@media (min-width: 0px) and (max-width: 599px) {
+  .sidebar {
+    border-left: none;
+    padding-left: 0px;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  .sidebar {
+    border-left: none;
+    padding-left: 0px;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+  }
+}

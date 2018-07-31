@@ -1,0 +1,13 @@
+#about {
+  width: 80%;
+  margin: auto;
+}
+#about h2 {
+  font-weight: 500;
+}
+#about p {
+  line-height: 34px;
+  font-weight: 300;
+  font-size: 1.1em;
+  text-align: justify;
+}
