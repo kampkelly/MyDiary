@@ -141,6 +141,24 @@ function submitSignin() {
 	if (noneEmpty === true) { // validation was successful
 		const email = document.querySelector('form input[type="email"]').value.toLowerCase().replace(/\s+/g, '');
 		const password = document.querySelectorAll('form input[type="password"]')[0].value.toLowerCase();
+		fetch('http://localhost:3000/api/v1/auth/login', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: window.JSON.stringify({ email, password }),
+		})
+			.then(res => res.json())
+			.then((data) => {
+				document.querySelector('.form_error_text').style.display = 'none';
+				if (data.status === 'Success') {
+					localStorage.setItem('diary_token', data.data.token);
+					window.location = `dashboard.html?notice=${data.message}`;
+				} else {
+					document.querySelector('.form_error_text').style.display = 'block';
+					document.querySelector('.form_error_text small').textContent = data.message;
+				}
+			});
 	}
 	validateForm();
 }
