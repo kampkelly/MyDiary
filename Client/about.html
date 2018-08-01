@@ -10,19 +10,18 @@
         <title>MyDiary</title>
         <link rel="stylesheet" href="stylesheets/global.css">
         <link rel="stylesheet" href="stylesheets/header.css">
-        <link rel="stylesheet" href="stylesheets/sidebar.css">
-        <link rel="stylesheet" href="stylesheets/show.css">
+        <link rel="stylesheet" href="stylesheets/about.css">
     </head>
     <body>
 		<header>
             <div class="container grid-container">
                     <div class="col-2-6 col-6-6-xs col-6-6-md">
-                        <h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1>
+                        <h1 class="text-center"><a href="index.html" class="white-text">My<span>Diary</span></a></h1>
                     </div>
                     <div class="col-4-6 col-6-6-xs col-6-6-md">
                         <nav class="desktop">
                             <ul class="no-styling flex justify-items-around">
-                                <li class="list-inline"><a href="dashboard.html">Dashboard</a></li>
+                                <li class="list-inline"><a href="index.html">Dashboard</a></li>
 								<li class="list-inline"><a href="signup.html">Signup</a></li>
                                 <li class="list-inline"><a href="signin.html">Signin</a></li>
                                 <li class="list-inline"><a href="profile.html">My Profile</a></li>
@@ -38,12 +37,12 @@
                             <div>
                                 <ul class="no-styling flex text-center">
                                     <span class="menu-button-close" id="menu-button-close">X</span>
-                                    <li><h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1></li>
-                                    <li class=""><a href="dashboard.html">Dashboard</a></li>
+                                    <li><h1 class="text-center"><a href="index.html" class="white-text">My<span>Diary</span></a></h1></li>
+                                    <li class=""><a href="index.html">Home</a></li>
 									<li class="list-inline"><a href="signup.html">Signup</a></li>
 	                                <li class="list-inline"><a href="signin.html">Signin</a></li>
                                     <li class=""><a href="profile.html">My Profile</a></li>
-                                    <li class=""><a href="about.html">About</a></li>
+                                    <li class="active"><a href="about.html">About</a></li>
                                     <li class=""><a href="#logout">Logout</a></li>
                                 </ul>
                             </div>
@@ -54,31 +53,20 @@
         <!--main content -->
         <main>
             <div class="main container">
-                <div class="grid-container">
-                    <div class="col-6-6 col-6-6-xs col-6-6-md whie-background">
-                        <section id="show">
-                            <article>
-                                <h3 class="title text-center white-text">Where can I get some?</h3>
-                                <span class="small-text light-text primary-text">1 day ago</span>
-                                <div>
-                                    <small><a href="edit.html" class="">Modify</a> <a href="#delete" class="danger-text ">Delete</a></small>
-                                </div>
-                                <p class="description white-text">
-                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-                                </p>
-                            </article>
-                        </section>
-                    </div>
-                </div>
+                <section id="about">
+                    <h2 class="text-center">About MyDiary</h2>
+                    <p>
+                        This website called 'MyDiary' is an online platform which allows people to store and keep a record of their personal activities and events. Here, you can pen down your thoughts and feelings, activities, and anything you like. You also receive daily notifications reminding you to pen down your thoughts for the day.<br /><br /> <em> This application is for Andela bootcamp project.</em>
+                    </p>
+                </section>
             </div>
         </main>
         <!--main content -->
         <footer>
-            <div class="container">
+			<div class="container">
                 <ul class="no-styling">
-                    <li class="list-inline"><a href="index.html"><small>Home</small></a></li>
-                    <li class="list-inline"><a href="about.html"><small>About</small></a></li>
                     <li class="list-inline"><small>&copy; 2018 MyDiary</small></li>
+                    <li class="list-inline"><small>Runor Adjekpiyede</small></li>
                 </ul>
             </div>
         </footer>

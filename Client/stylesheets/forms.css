@@ -12,7 +12,8 @@ form .form_error_text {
   margin-bottom: 10px;
 }
 form .field {
-  margin: 0px 0px 15px 0px;
+  margin: 0px auto 15px auto;
+  width: 90%;
 }
 form .field label {
   margin: 3px 0px 3px 0px;
@@ -30,7 +31,7 @@ form .field .control-form {
   border: none;
   float: left;
   height: 2.7em;
-  width: 75%;
+  width: 100%;
   border-radius: 3px;
   padding: 0px 6px 0px 6px;
   border-color: inherit;

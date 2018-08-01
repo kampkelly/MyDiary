@@ -1,8 +1,9 @@
-import 'babel-polyfill';
 /* global location */
 /* eslint no-restricted-globals: ["off", "location", "event"] */
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
 /* eslint-disable no-unused-vars */
+// const baseUrl = 'https://kampkelly-mydiary-api.herokuapp.com/api/v1';
+const baseUrl = 'http://localhost:3000/api/v1';
 document.addEventListener('DOMContentLoaded', () => {
 	// slider animations
 	document.querySelector('#carousel > ul li:nth-child(1) h4').style.color = '#DFAC2C';
@@ -111,7 +112,7 @@ function submitSignup() {
 			document.querySelector('.form_error_text small').textContent = 'Your Passwords do not match';
 		} else {
 			document.querySelector('.form_error_text').style.display = 'none';
-			fetch('http://localhost:3000/api/v1/auth/signup', {
+			fetch(`${baseUrl}/auth/signup`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -141,6 +142,24 @@ function submitSignin() {
 	if (noneEmpty === true) { // validation was successful
 		const email = document.querySelector('form input[type="email"]').value.toLowerCase().replace(/\s+/g, '');
 		const password = document.querySelectorAll('form input[type="password"]')[0].value.toLowerCase();
+		fetch(`${baseUrl}/auth/login`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: window.JSON.stringify({ email, password }),
+		})
+			.then(res => res.json())
+			.then((data) => {
+				document.querySelector('.form_error_text').style.display = 'none';
+				if (data.status === 'Success') {
+					localStorage.setItem('diary_token', data.data.token);
+					window.location = `dashboard.html?notice=${data.message}`;
+				} else {
+					document.querySelector('.form_error_text').style.display = 'block';
+					document.querySelector('.form_error_text small').textContent = data.message;
+				}
+			});
 	}
 	validateForm();
 }
