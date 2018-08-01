@@ -15,18 +15,26 @@ main h2 {
   width: 61%;
   margin: auto;
 }
+#signup .submit-button {
+  width: 100%;
+}
 @media (min-width: 0px) and (max-width: 599px) {
   #signup .form-cover {
     width: 90%;
     margin: auto;
+  }
+  #signup .submit-button {
+    width: 100%;
   }
 }
 @media (min-width: 600px) and (max-width: 900px) {
   #signup .form-cover {
     width: 80%;
   }
-  #signup button.button-white {
-    width: 79%;
-    margin-left: 20px;
+  #signup .submit-button {
+    width: 100%;
+  }
+  #signup [class*='col-'] {
+    padding-right: 0;
   }
 }

@@ -8,9 +8,9 @@ module.exports = function(grunt) {
 	        dist: {
 				files: [{
 			      expand: true,
-			      cwd: 'FULLCONNECTION/javascripts/es6',
+			      cwd: 'Client/javascripts/es6',
 			      src: ['*.js'],
-			      dest: 'FULLCONNECTION/javascripts',
+			      dest: 'Client/javascripts',
 			      ext: '.js'
 			  }]
 	        }
@@ -19,11 +19,11 @@ module.exports = function(grunt) {
 			// options: {
 			// 	fix: true
 			// },
-            target: ['FULLCONNECTION/javascripts/es6/*.js']
+            target: ['Client/javascripts/es6/*.js']
        	},
 		watch: {
 			scripts: {
-				files: ["FULLCONNECTION/javascripts/es6/*.js"],
+				files: ["Client/javascripts/es6/*.js"],
 				tasks: ["eslint", "babel"]
 			}
 		}
