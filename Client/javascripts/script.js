@@ -178,6 +178,33 @@ function forgotPassword() {
 	}
 }
 
+// eslint-disable-next-line
+function viewEntries() {
+	document.querySelector('#dashboard').style.display = 'none';
+	document.querySelector('#index').style.display = 'block';
+	fetch(baseUrl + '/entries', {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+			token: localStorage.getItem('diary_token')
+		}
+	}).then(function (res) {
+		return res.json();
+	}).then(function (data) {
+		if (data.data.length >= 1) {
+			var k = '<li></li>';
+			data.data.map(function (d) {
+				var date = d.created_at.split('T')[0];
+				k += '<li>\n\t\t\t\t\t<h4 class="title"><a href="show.html?entries=' + d.id + '">' + d.title + '</a> <span class="small-text light-text">' + date + '</span></h4>\n\t\t\t\t\t<p class="description">' + d.description + ' <a href="show.html?entries=' + d.id + '">Read more...</a></p>\n\t\t\t\t\t</li>';
+				return d;
+			});
+			document.querySelector('#index .no-styling').innerHTML = k;
+		} else if (data.data.length < 1) {
+			document.querySelector('#index .no-styling').innerHTML = '<h3 class="text-center danger-text">You do not have any entries yet..<a href="add.html">Create one now</a></h3>';
+		}
+	});
+}
+
 function addEntry() {
 	var successMessage = 'Entry has been saved!';
 	var errorMessage = 'One or more of the required fields is empty!';
@@ -240,18 +267,11 @@ function goToNewEntryPage() {
 	window.location = 'add.html';
 }
 
-function viewEntries() {
-	document.querySelector('#dashboard').style.display = 'none';
-	document.querySelector('#index').style.display = 'block';
-}
-
 function closeNotification() {
 	document.querySelector('#flash-message').style.display = 'none';
 }
 
 function checkNotice() {
-	console.log(window.location.href);
-	console.log('ddlmd');
 	var pageUrl = window.location.href;
 	var url = new URL(pageUrl);
 	var notice = url.searchParams.get('notice');

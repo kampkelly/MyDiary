@@ -20,6 +20,9 @@ $tablet: "(min-width: 600px) and (max-width: 900px)";
                 color: black;
                 line-height: 22px;
             }
+			span {
+				padding-left: 50px;
+			}
         }
         li:last-of-type {
             border-bottom: none;
