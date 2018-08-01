@@ -79,6 +79,12 @@ $tablet: "(min-width: 600px) and (max-width: 900px)";
 		text-align: center;
 	}
 }
+img#loading {
+	height: 40px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
 .primary-background {
     background-color: $primary-color;
     color: white;
