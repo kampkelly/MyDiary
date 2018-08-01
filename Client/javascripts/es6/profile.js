@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			</div>
 			`;
 			document.querySelector('#insert').innerHTML = html;
+			document.querySelector('#settings #notification_time').textContent = data.data.user.remindertime;
+			document.querySelector('input[type="time"]').value = data.data.user.remindertime;
 			fetch(`${baseUrl}/entries`, {
 				method: 'GET',
 				headers: {
