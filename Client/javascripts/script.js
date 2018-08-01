@@ -182,8 +182,28 @@ function addEntry() {
 	var successMessage = 'Entry has been saved!';
 	var errorMessage = 'One or more of the required fields is empty!';
 	var noneEmpty = validateForm(errorMessage, successMessage, event);
-	if (noneEmpty === true) {// validation was successful
-
+	if (noneEmpty === true) {
+		// validation was successful
+		var title = document.querySelector('form input[type="text"]').value;
+		var description = document.querySelector('form textarea').value;
+		fetch(baseUrl + '/entries', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				token: localStorage.getItem('diary_token')
+			},
+			body: window.JSON.stringify({ title: title, description: description })
+		}).then(function (res) {
+			return res.json();
+		}).then(function (data) {
+			if (data.status === 'Success') {
+				document.getElementById('flash-message').style.display = 'block';
+				document.getElementById('flash-message').style.backgroundColor = 'red';
+				document.querySelector('#flash-message p').textContent = data.message;
+			} else if (data.status === 'Success') {
+				window.location = 'dashboard.html?notice=' + data.message;
+			}
+		});
 	}
 }
 
