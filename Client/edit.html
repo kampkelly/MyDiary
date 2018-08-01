@@ -54,6 +54,10 @@
         </header>
         <!--main content -->
         <main>
+			<div id="flash-message">
+				<span onclick="closeNotification()">X</span>
+				<p></p>
+			</div>
             <div class="main container">
                 <div class="grid-container">
                     <div class="col-4-6 col-6-6-xs col-6-6-md">
@@ -68,7 +72,7 @@
                                             <label class="white-text">Title:</label>
                                         </div>
                                         <div class="col-4-6 col-6-6-md col-6-6-xs">
-                                            <input type="text" required="true" class="control-form" id="title" autocomplete="title" value="Where can I get some?" />
+                                            <input type="text" required="true" class="control-form" id="title" autocomplete="title" />
                                         </div>
                                     </div>
                                     <div class="field grid-container">
@@ -76,15 +80,15 @@
                                             <label class="white-text">Description:</label>
                                         </div>
                                         <div class="col-4-6 col-6-6-md col-6-6-xs">
-                                            <textarea class="control-form" id="description" required="true" resize="no">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</textarea>
+                                            <textarea class="control-form" id="description" required="true" resize="no"></textarea>
                                         </div>
                                     </div>
                                     <div class="field grid-container">
-										<div class="col-1-6 col-6-6-md col-6-6-xs"></div>
-										<div class="col-3-6 col-6-6-md col-6-6-xs">
+										<div class="col-2-6 col-6-6-md col-6-6-xs"></div>
+										<div class="col-2-6 col-6-6-md col-6-6-xs">
                                             <button type="submit" class="submit-button button-white" onclick=" editEntry()">Update Diary</button>
                                         </div>
-                                        <div class="col-2-6 col-6-6-md col-6-6-xs">
+                                        <div class="col-2-6 col-6-6-md col-6-6-xs cancel-div">
                                             <button type="submit" class="submit-button button-cancel mt-4-xs mt-4-md" onclick=" window.history.go(-1)">Cancel</button>
                                         </div>
                                         <div class="col-3-6 col-6-6-md col-6-6-xs">
@@ -110,5 +114,6 @@
         <script type="text/javascript" src="javascripts/jquery.min.js"></script>
         <script type="text/javascript" src="javascripts/header.js"></script>
         <script type="text/javascript" src="javascripts/script.js"></script>
+        <script type="text/javascript" src="javascripts/edit-entry.js"></script>
     <body>
 </html>
