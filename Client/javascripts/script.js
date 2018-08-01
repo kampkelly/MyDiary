@@ -196,7 +196,7 @@ function addEntry() {
 		}).then(function (res) {
 			return res.json();
 		}).then(function (data) {
-			if (data.status === 'Success') {
+			if (data.status === 'Failed') {
 				document.getElementById('flash-message').style.display = 'block';
 				document.getElementById('flash-message').style.backgroundColor = 'red';
 				document.querySelector('#flash-message p').textContent = data.message;
