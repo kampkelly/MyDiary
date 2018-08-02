@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			var k = '<li>\n\t\t\t\t<li><a href="show.html?entries=' + data.data[0].id + '"><h4 class="title">' + data.data[0].title + '</h4></a></li>\n\t\t\t\t<li><a href="show.html?entries=' + data.data[1].id + '"><h4 class="title">' + data.data[1].title + '</h4></a></li>\n\t\t\t\t<li><a href="show.html?entries=' + data.data[2].id + '"><h4 class="title">' + data.data[2].title + '</h4></a></li>\n\t\t\t\t<li><a href="show.html?entries=' + data.data[3] + '"><h4 class="title">' + data.data[3].title + '</h4></a></li>\n\t\t\t\t';
 			document.querySelector('aside .no-styling').innerHTML = k;
 		} else if (data.data.length < 1) {
-			document.querySelector('aside .no-styling').innerHTML = '<h3 class="text-center danger-text">No entries></h3>';
+			document.querySelector('aside .no-styling').innerHTML = '<h3 class="text-center danger-text">No entries</h3>';
+			document.querySelector('aside .no-styling h3').style.color = '#DFAC2C';
 		}
 	});
 });

@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				`;
 				document.querySelector('aside .no-styling').innerHTML = k;
 			} else if (data.data.length < 1) {
-				document.querySelector('aside .no-styling').innerHTML = '<h3 class="text-center danger-text">No entries></h3>';
+				document.querySelector('aside .no-styling').innerHTML = '<h3 class="text-center danger-text">No entries</h3>';
+				document.querySelector('aside .no-styling h3').style.color = '#DFAC2C';
 			}
 		});
 });
