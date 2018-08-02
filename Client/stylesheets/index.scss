@@ -1,0 +1,41 @@
+$primary-color: #052F60;
+$secondary-color: #DFAC2C;
+$light-white-color: #d0d0d0;
+$white-color: #fafafa;
+$smartphone: "(min-width: 0px) and (max-width: 599px)";
+//$smartphone: "(min-width: 0px) and (max-width: 467px)";
+$tablet: "(min-width: 600px) and (max-width: 900px)";
+
+#index {
+    width: 70%;
+    margin: auto;
+    ul {
+        li {
+            border-bottom: 1px solid $light-white-color;
+            a {
+                border-radius: 10px;
+                color: $secondary-color;
+            }
+            .description {
+                color: black;
+                line-height: 22px;
+            }
+			span {
+				padding-left: 50px;
+			}
+        }
+        li:last-of-type {
+            border-bottom: none;
+        }
+    }
+}
+@media #{$tablet} {
+    #index {
+        width: 90%;
+    }
+}
+@media #{$smartphone} {
+    #index {
+        width: 90%;
+    }
+}
