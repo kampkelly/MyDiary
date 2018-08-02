@@ -26,13 +26,16 @@ main {
 		background: rgba(107, 101, 101, 0.3);
         margin: auto;
         .field {
+			.control-form {
+				width: 100%;
+			}
             padding: 10px;
             border-radius: 10px;
             &:last-of-type {
                 background: none;
-                padding: 0px;
             }
             button {
+				width: 100%;
                 &:hover {
 					transition: 1s;
                 }
@@ -41,5 +44,13 @@ main {
     }
     [class*='col-'] {
       margin: auto;
+    }
+    .cancel-div {
+      padding-right: 0px;
+    }
+	@media #{$tablet} {
+		[class*='col-'] {
+		  padding-right: 0px;
+		}
     }
 }

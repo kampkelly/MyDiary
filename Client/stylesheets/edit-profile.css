@@ -24,9 +24,14 @@ main {
   padding: 10px;
   border-radius: 10px;
 }
+#edit-profile .form-cover .field .control-form {
+  width: 100%;
+}
 #edit-profile .form-cover .field:last-of-type {
   background: none;
-  padding: 0px;
+}
+#edit-profile .form-cover .field button {
+  width: 100%;
 }
 #edit-profile .form-cover .field button:hover {
   -webkit-transition: 1s;
@@ -34,4 +39,12 @@ main {
 }
 #edit-profile [class*='col-'] {
   margin: auto;
+}
+#edit-profile .cancel-div {
+  padding-right: 0px;
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  #edit-profile [class*='col-'] {
+    padding-right: 0px;
+  }
 }

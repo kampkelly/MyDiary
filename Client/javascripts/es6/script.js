@@ -267,7 +267,28 @@ function updateProfile() {
 	const errorMessage = 'Please fill the form fields!';
 	const noneEmpty = validateForm(errorMessage, successMessage, event);
 	if (noneEmpty === true) { // validation was successful
-
+		const email = document.querySelector('form input[type="email"]').value;
+		const fullName = document.querySelector('form input[type="text"]').value;
+		const dateOfBirth = document.querySelector('form input[type="date"]').value;
+		fetch(`${baseUrl}/user/profile`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+				token: localStorage.getItem('diary_token'),
+			},
+			body: window.JSON.stringify({ email, fullName, dateOfBirth }),
+		})
+			.then(res => res.json())
+			.then((data) => {
+				console.log(data);
+				document.querySelector('.form_error_text').style.display = 'none';
+				if (data.status === 'Success') {
+					window.location = `profile.html?notice=${data.message}`;
+				} else {
+					document.querySelector('.form_error_text').style.display = 'block';
+					document.querySelector('.form_error_text small').textContent = data.message;
+				}
+			});
 	}
 }
 
@@ -276,8 +297,29 @@ function saveSettings() {
 	const errorMessage = 'Please Enter a Valid Date!';
 	const noneEmpty = validateForm(errorMessage, successMessage, event);
 	if (noneEmpty === true) { // validation was successful
-		const time = document.querySelector('form input[type="time"]').value;
-		document.querySelector('.success-text #notification_time').textContent = time;
+		const reminderTime = document.querySelector('form input[type="time"]').value;
+		fetch(`${baseUrl}/user/notifications`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+				token: localStorage.getItem('diary_token'),
+			},
+			body: window.JSON.stringify({ reminderTime }),
+		})
+			.then(res => res.json())
+			.then((data) => {
+				console.log(data);
+				document.querySelector('.form_error_text').style.display = 'none';
+				if (data.status === 'Success') {
+					document.getElementById('flash-message').style.display = 'block';
+					document.querySelector('#flash-message p').textContent = data.message;
+					document.querySelector('#settings #notification_time').textContent = reminderTime;
+				} else {
+					document.querySelector('.form_error_text').style.display = 'block';
+					document.querySelector('.form_error_text small').textContent = data.message;
+				}
+			});
+		//
 	}
 }
 
