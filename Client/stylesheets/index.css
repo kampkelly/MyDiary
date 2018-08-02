@@ -13,6 +13,9 @@
   color: black;
   line-height: 22px;
 }
+#index ul li span {
+  padding-left: 50px;
+}
 #index ul li:last-of-type {
   border-bottom: none;
 }
