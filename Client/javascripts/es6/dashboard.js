@@ -10,15 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		.then(res => res.json())
 		.then((data) => {
 			if (data.data.length >= 1) {
-				const k = `<li>
-				<li><a href="show.html?entries=${data.data[0].id}"><h4 class="title">${data.data[0].title}</h4></a></li>
-				<li><a href="show.html?entries=${data.data[1].id}"><h4 class="title">${data.data[1].title}</h4></a></li>
-				<li><a href="show.html?entries=${data.data[2].id}"><h4 class="title">${data.data[2].title}</h4></a></li>
-				<li><a href="show.html?entries=${data.data[3]}"><h4 class="title">${data.data[3].title}</h4></a></li>
-				`;
-				document.querySelector('aside .no-styling').innerHTML = k;
+				const entries = data.data.filter((da, index) => data.data.indexOf(da)
+				<= (data.data.length - 4) && index < 4);
+				let html = '<li></li>';
+				entries.map((entry) => {
+					html += `<li><a href="show.html?entries=${entry.id}"><h4 class="title">${entry.title}</h4></a></li>`;
+					return entry;
+				});
+				document.querySelector('aside .no-styling').innerHTML = html;
 			} else if (data.data.length < 1) {
-				document.querySelector('aside .no-styling').innerHTML = '<h3 class="text-center danger-text">No entries></h3>';
+				document.querySelector('aside .no-styling').innerHTML = '<h3 class="text-center">No entries</h3>';
+				document.querySelector('aside .no-styling h3').style.color = '#DFAC2C';
 			}
 		});
 });
@@ -39,16 +41,16 @@ function viewEntries() {
 		.then((data) => {
 			document.getElementById('loading').style.display = 'none';
 			if (data.data.length >= 1) {
-				let k = '<li></li>';
-				data.data.map((d) => {
-					const date = d.created_at.split('T')[0];
-					k += `<li>
-					<h4 class="title"><a href="show.html?entries=${d.id}">${d.title}</a> <span class="small-text light-text">${date}</span></h4>
-					<p class="description">${d.description} <a href="show.html?entries=${d.id}">Read more...</a></p>
+				let html = '<li></li>';
+				data.data.map((entry) => {
+					const date = entry.created_at.split('T')[0];
+					html += `<li>
+					<h4 class="title"><a href="show.html?entries=${entry.id}">${entry.title}</a> <span class="small-text light-text">${date}</span></h4>
+					<p class="description">${entry.description.slice(0, 150)} <a href="show.html?entries=${entry.id}">Read more...</a></p>
 					</li>`;
-					return d;
+					return entry;
 				});
-				document.querySelector('#index .no-styling').innerHTML = k;
+				document.querySelector('#index .no-styling').innerHTML = html;
 			} else if (data.data.length < 1) {
 				document.querySelector('#index .no-styling').innerHTML = '<h3 class="text-center danger-text">You do not have any entries yet..<a href="add.html">Create one now</a></h3>';
 			}
