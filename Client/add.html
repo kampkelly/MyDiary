@@ -54,6 +54,10 @@
         </header>
         <!--main content -->
         <main>
+			<div id="flash-message">
+				<span onclick="closeNotification()">X</span>
+				<p></p>
+			</div>
             <div class="main container">
                 <div class="grid-container">
                     <div class="col-4-6 col-6-6-xs col-6-6-md">
@@ -80,11 +84,11 @@
                                         </div>
                                     </div>
                                     <div class="field grid-container">
-                                        <div class="col-1-6 col-6-6-md col-6-6-xs"></div>
-                                        <div class="col-3-6 col-6-6-md col-6-6-xs">
+                                        <div class="col-2-6 col-6-6-md col-6-6-xs"></div>
+                                        <div class="col-2-6 col-6-6-md col-6-6-xs">
                                             <button type="submit" class="submit-button button-white" onclick=" addEntry()">Save to diary</button>
                                         </div>
-                                        <div class="col-2-6 col-6-6-md col-6-6-xs">
+                                        <div class="col-2-6 col-6-6-md col-6-6-xs cancel-div">
                                             <button type="submit" class="submit-button button-cancel mt-4-xs mt-4-md" onclick=" window.history.go(-1)">Cancel</button>
                                         </div>
                                         <div class="col-3-6 col-6-6-md col-6-6-xs">

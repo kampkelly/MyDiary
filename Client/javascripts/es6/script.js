@@ -178,7 +178,26 @@ function addEntry() {
 	const errorMessage = 'One or more of the required fields is empty!';
 	const noneEmpty = validateForm(errorMessage, successMessage, event);
 	if (noneEmpty === true) { // validation was successful
-
+		const title = document.querySelector('form input[type="text"]').value;
+		const description = document.querySelector('form textarea').value;
+		fetch(`${baseUrl}/entries`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				token: localStorage.getItem('diary_token'),
+			},
+			body: window.JSON.stringify({ title, description }),
+		})
+			.then(res => res.json())
+			.then((data) => {
+				if (data.status === 'Failed') {
+					document.getElementById('flash-message').style.display = 'block';
+					document.getElementById('flash-message').style.backgroundColor = 'red';
+					document.querySelector('#flash-message p').textContent = data.message;
+				} else if (data.status === 'Success') {
+					window.location = `dashboard.html?notice=${data.message}`;
+				}
+			});
 	}
 }
 
