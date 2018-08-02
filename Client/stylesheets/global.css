@@ -84,6 +84,13 @@
   text-align: center;
 }
 
+img#loading {
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
 .primary-background {
   background-color: #052F60;
   color: white;
