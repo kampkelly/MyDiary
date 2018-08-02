@@ -1,8 +1,12 @@
-const baseUrl = 'http://localhost:3000/api/v1';
+const baseUrl = 'https://kampkelly-mydiary-api.herokuapp.com/api/v1';
 document.addEventListener('DOMContentLoaded', () => {
 	const pageUrl = window.location.href;
 	const url = new URL(pageUrl);
 	const entryId = url.searchParams.get('entries');
+	console.log(entryId);
+	if (entryId === null) {
+		window.location = 'dashboard.html';
+	}
 	document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
 	fetch(`${baseUrl}/entries/${entryId}`, {
 		method: 'GET',
@@ -17,7 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
 				document.getElementById('loading').style.display = 'none';
 				document.getElementById('flash-message').style.display = 'block';
 				document.getElementById('flash-message').style.backgroundColor = 'red';
-				document.querySelector('#flash-message p').textContent = data.message;
+				if ('one' === 'two') {
+					document.querySelector('#flash-message p').textContent = data.message;
+				} else {
+					document.querySelector('#flash-message p').textContent = 'You have made an invalid request!';
+				}
 				document.getElementById('show').innerHTML = '<h3 class="text-center white-text">going back to the dashboard in <span id="countdown">3</span> seconds...</h3>';
 				let count = 3;
 				setInterval(() => {
@@ -26,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				}, 1000);
 				setTimeout(() => {
 					window.location = 'dashboard.html';
-				}, 4000);
+				}, 3000);
 			} else if (data.status === 'Success') {
 				document.getElementById('loading').style.display = 'none';
 				const date = data.data.created_at.split('T')[0];

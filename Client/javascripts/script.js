@@ -5,8 +5,31 @@
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
 /* eslint-disable no-unused-vars */
 // const baseUrl = 'https://kampkelly-mydiary-api.herokuapp.com/api/v1';
-var baseUrl = 'http://localhost:3000/api/v1';
+var baseUrl = 'https://kampkelly-mydiary-api.herokuapp.com/api/v1';
 document.addEventListener('DOMContentLoaded', function () {
+	function authenticate() {
+		if (localStorage.getItem('diary_token')) {
+			// authenticated
+			document.querySelectorAll('a[href="signup.html"]')[0].parentNode.style.display = 'none';
+			document.querySelectorAll('a[href="signup.html"]')[1].parentNode.style.display = 'none';
+			document.querySelectorAll('li>a[href="signin.html"]')[0].parentNode.style.display = 'none';
+			document.querySelectorAll('li>a[href="signin.html"]')[1].parentNode.style.display = 'none';
+		} else {
+			// eslint-disable-next-line
+			document.querySelector('a[href="#logout"]').style.display = 'none';
+			if (location.href.includes('/signup.html') || location.href.includes('/signin.html') || location.href.includes('/forgot_password.html') || location.href.includes('/about.html')) {
+				document.querySelectorAll('a[href="dashboard.html"]')[1].parentNode.style.display = 'none';
+				document.querySelectorAll('a[href="dashboard.html"]')[3].parentNode.style.display = 'none';
+				document.querySelectorAll('a[href="profile.html"]')[0].parentNode.style.display = 'none';
+				document.querySelectorAll('a[href="profile.html"]')[1].parentNode.style.display = 'none';
+				document.querySelectorAll('a[href="#logout"]')[0].parentNode.style.display = 'none';
+				document.querySelectorAll('a[href="#logout"]')[1].parentNode.style.display = 'none';
+			} else {
+				window.location = 'signin.html?notice=You are not logged in!&warning=red';
+			}
+		}
+	}
+	authenticate();
 	// slider animations
 	document.querySelector('#carousel > ul li:nth-child(1) h4').style.color = '#DFAC2C';
 	$('#carousel > ul li:nth-child(1)').on('click', function () {
@@ -76,6 +99,11 @@ document.getElementById('change_settings').addEventListener('click', function ()
 	});
 });
 
+function logout() {
+	localStorage.removeItem('diary_token');
+	window.location = 'signin.html';
+}
+
 function checkCheckedValues(checkedValues) {
 	// eslint-disable-next-line
 	for (var i = 0; i < checkedValues.length; i++) {
@@ -101,7 +129,7 @@ function validateForm(errorMessage, successMessage, event) {
 
 function submitSignup() {
 	var successMessage = 'You have been signed up!';
-	var errorMessage = 'One or more of the required fields is empty!';
+	var errorMessage = 'One or more required fields are empty!';
 	var noneEmpty = validateForm(errorMessage, successMessage, event);
 	if (noneEmpty === true) {
 		// validation was successful
@@ -127,7 +155,8 @@ function submitSignup() {
 				return res.json();
 			}).then(function (data) {
 				if (data.status === 'Success') {
-					window.location = 'signin.html?notice=' + data.message;
+					localStorage.setItem('diary_token', data.data.token);
+					window.location = 'dashboard.html?notice=' + data.message;
 				} else {
 					document.querySelector('.form_error_text').style.display = 'block';
 					document.querySelector('.form_error_text small').textContent = data.message;
@@ -135,7 +164,6 @@ function submitSignup() {
 			});
 		}
 	}
-	validateForm();
 }
 
 function submitSignin() {
@@ -165,7 +193,6 @@ function submitSignin() {
 			}
 		});
 	}
-	validateForm();
 }
 
 function forgotPassword() {
@@ -178,33 +205,6 @@ function forgotPassword() {
 	}
 }
 
-// eslint-disable-next-line
-function viewEntries() {
-	document.querySelector('#dashboard').style.display = 'none';
-	document.querySelector('#index').style.display = 'block';
-	fetch(baseUrl + '/entries', {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json',
-			token: localStorage.getItem('diary_token')
-		}
-	}).then(function (res) {
-		return res.json();
-	}).then(function (data) {
-		if (data.data.length >= 1) {
-			var k = '<li></li>';
-			data.data.map(function (d) {
-				var date = d.created_at.split('T')[0];
-				k += '<li>\n\t\t\t\t\t<h4 class="title"><a href="show.html?entries=' + d.id + '">' + d.title + '</a> <span class="small-text light-text">' + date + '</span></h4>\n\t\t\t\t\t<p class="description">' + d.description + ' <a href="show.html?entries=' + d.id + '">Read more...</a></p>\n\t\t\t\t\t</li>';
-				return d;
-			});
-			document.querySelector('#index .no-styling').innerHTML = k;
-		} else if (data.data.length < 1) {
-			document.querySelector('#index .no-styling').innerHTML = '<h3 class="text-center danger-text">You do not have any entries yet..<a href="add.html">Create one now</a></h3>';
-		}
-	});
-}
-
 function addEntry() {
 	var successMessage = 'Entry has been saved!';
 	var errorMessage = 'One or more of the required fields is empty!';
@@ -213,6 +213,7 @@ function addEntry() {
 		// validation was successful
 		var title = document.querySelector('form input[type="text"]').value;
 		var description = document.querySelector('form textarea').value;
+		document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
 		fetch(baseUrl + '/entries', {
 			method: 'POST',
 			headers: {
@@ -223,6 +224,7 @@ function addEntry() {
 		}).then(function (res) {
 			return res.json();
 		}).then(function (data) {
+			document.getElementById('loading').style.display = 'none';
 			if (data.status === 'Failed') {
 				document.getElementById('flash-message').style.display = 'block';
 				document.getElementById('flash-message').style.backgroundColor = 'red';
@@ -245,6 +247,7 @@ function editEntry() {
 		var pageUrl = window.location.href;
 		var url = new URL(pageUrl);
 		var entryId = url.searchParams.get('entries');
+		document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
 		fetch(baseUrl + '/entries/' + entryId, {
 			method: 'PUT',
 			headers: {
@@ -255,6 +258,7 @@ function editEntry() {
 		}).then(function (res) {
 			return res.json();
 		}).then(function (data) {
+			document.getElementById('loading').style.display = 'none';
 			document.querySelector('.form_error_text').style.display = 'none';
 			if (data.status === 'Success') {
 				window.location = 'show.html?entries=' + entryId + '&notice=' + data.message;
@@ -275,6 +279,7 @@ function updateProfile() {
 		var email = document.querySelector('form input[type="email"]').value;
 		var fullName = document.querySelector('form input[type="text"]').value;
 		var dateOfBirth = document.querySelector('form input[type="date"]').value;
+		document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
 		fetch(baseUrl + '/user/profile', {
 			method: 'PUT',
 			headers: {
@@ -285,6 +290,7 @@ function updateProfile() {
 		}).then(function (res) {
 			return res.json();
 		}).then(function (data) {
+			document.getElementById('loading').style.display = 'none';
 			console.log(data);
 			document.querySelector('.form_error_text').style.display = 'none';
 			if (data.status === 'Success') {
@@ -304,6 +310,7 @@ function saveSettings() {
 	if (noneEmpty === true) {
 		// validation was successful
 		var reminderTime = document.querySelector('form input[type="time"]').value;
+		document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
 		fetch(baseUrl + '/user/notifications', {
 			method: 'PUT',
 			headers: {
@@ -314,6 +321,7 @@ function saveSettings() {
 		}).then(function (res) {
 			return res.json();
 		}).then(function (data) {
+			document.getElementById('loading').style.display = 'none';
 			console.log(data);
 			document.querySelector('.form_error_text').style.display = 'none';
 			if (data.status === 'Success') {
@@ -325,7 +333,6 @@ function saveSettings() {
 				document.querySelector('.form_error_text small').textContent = data.message;
 			}
 		});
-		//
 	}
 }
 
@@ -341,11 +348,13 @@ function checkNotice() {
 	var pageUrl = window.location.href;
 	var url = new URL(pageUrl);
 	var notice = url.searchParams.get('notice');
-	console.log(notice);
 	if (notice) {
 		if (notice.length >= 1) {
 			document.querySelector('#flash-message').style.display = 'block';
 			document.querySelector('#flash-message p').textContent = notice;
+			if (url.searchParams.get('warning')) {
+				document.querySelector('#flash-message').style.backgroundColor = '#fd616b';
+			}
 		}
 	}
 }

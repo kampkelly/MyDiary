@@ -3,8 +3,30 @@
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
 /* eslint-disable no-unused-vars */
 // const baseUrl = 'https://kampkelly-mydiary-api.herokuapp.com/api/v1';
-const baseUrl = 'http://localhost:3000/api/v1';
+const baseUrl = 'https://kampkelly-mydiary-api.herokuapp.com/api/v1';
 document.addEventListener('DOMContentLoaded', () => {
+	function authenticate() {
+		if (localStorage.getItem('diary_token')) { // authenticated
+			document.querySelectorAll('a[href="signup.html"]')[0].parentNode.style.display = 'none';
+			document.querySelectorAll('a[href="signup.html"]')[1].parentNode.style.display = 'none';
+			document.querySelectorAll('li>a[href="signin.html"]')[0].parentNode.style.display = 'none';
+			document.querySelectorAll('li>a[href="signin.html"]')[1].parentNode.style.display = 'none';
+		} else {
+			// eslint-disable-next-line
+			document.querySelector('a[href="#logout"]').style.display = 'none';
+			if (location.href.includes('/signup.html') || location.href.includes('/signin.html') || location.href.includes('/forgot_password.html') || location.href.includes('/about.html')) {
+				document.querySelectorAll('a[href="dashboard.html"]')[1].parentNode.style.display = 'none';
+				document.querySelectorAll('a[href="dashboard.html"]')[3].parentNode.style.display = 'none';
+				document.querySelectorAll('a[href="profile.html"]')[0].parentNode.style.display = 'none';
+				document.querySelectorAll('a[href="profile.html"]')[1].parentNode.style.display = 'none';
+				document.querySelectorAll('a[href="#logout"]')[0].parentNode.style.display = 'none';
+				document.querySelectorAll('a[href="#logout"]')[1].parentNode.style.display = 'none';
+			} else {
+				window.location = 'signin.html?notice=You are not logged in!&warning=red';
+			}
+		}
+	}
+	authenticate();
 	// slider animations
 	document.querySelector('#carousel > ul li:nth-child(1) h4').style.color = '#DFAC2C';
 	$('#carousel > ul li:nth-child(1)').on('click', () => {
@@ -74,6 +96,11 @@ document.getElementById('change_settings').addEventListener('click', () => {
 	});
 });
 
+function logout() {
+	localStorage.removeItem('diary_token');
+	window.location = 'signin.html';
+}
+
 function checkCheckedValues(checkedValues) {
 	// eslint-disable-next-line
 	for (let i = 0; i < checkedValues.length; i++) {
@@ -99,7 +126,7 @@ function validateForm(errorMessage, successMessage, event) {
 
 function submitSignup() {
 	const successMessage = 'You have been signed up!';
-	const errorMessage = 'One or more of the required fields is empty!';
+	const errorMessage = 'One or more required fields are empty!';
 	const noneEmpty = validateForm(errorMessage, successMessage, event);
 	if (noneEmpty === true) { // validation was successful
 		const fullName = document.querySelector('form input[id="signup_fullname"]').value;
@@ -124,7 +151,8 @@ function submitSignup() {
 				.then(res => res.json())
 				.then((data) => {
 					if (data.status === 'Success') {
-						window.location = `signin.html?notice=${data.message}`;
+						localStorage.setItem('diary_token', data.data.token);
+						window.location = `dashboard.html?notice=${data.message}`;
 					} else {
 						document.querySelector('.form_error_text').style.display = 'block';
 						document.querySelector('.form_error_text small').textContent = data.message;
@@ -132,7 +160,6 @@ function submitSignup() {
 				});
 		}
 	}
-	validateForm();
 }
 
 function submitSignin() {
@@ -161,7 +188,6 @@ function submitSignin() {
 				}
 			});
 	}
-	validateForm();
 }
 
 function forgotPassword() {
@@ -173,36 +199,6 @@ function forgotPassword() {
 	}
 }
 
-// eslint-disable-next-line
-function viewEntries() {
-	document.querySelector('#dashboard').style.display = 'none';
-	document.querySelector('#index').style.display = 'block';
-	fetch(`${baseUrl}/entries`, {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json',
-			token: localStorage.getItem('diary_token'),
-		},
-	})
-		.then(res => res.json())
-		.then((data) => {
-			if (data.data.length >= 1) {
-				let k = '<li></li>';
-				data.data.map((d) => {
-					const date = d.created_at.split('T')[0];
-					k += `<li>
-					<h4 class="title"><a href="show.html?entries=${d.id}">${d.title}</a> <span class="small-text light-text">${date}</span></h4>
-					<p class="description">${d.description} <a href="show.html?entries=${d.id}">Read more...</a></p>
-					</li>`;
-					return d;
-				});
-				document.querySelector('#index .no-styling').innerHTML = k;
-			} else if (data.data.length < 1) {
-				document.querySelector('#index .no-styling').innerHTML = '<h3 class="text-center danger-text">You do not have any entries yet..<a href="add.html">Create one now</a></h3>';
-			}
-		});
-}
-
 function addEntry() {
 	const successMessage = 'Entry has been saved!';
 	const errorMessage = 'One or more of the required fields is empty!';
@@ -210,6 +206,7 @@ function addEntry() {
 	if (noneEmpty === true) { // validation was successful
 		const title = document.querySelector('form input[type="text"]').value;
 		const description = document.querySelector('form textarea').value;
+		document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
 		fetch(`${baseUrl}/entries`, {
 			method: 'POST',
 			headers: {
@@ -220,6 +217,7 @@ function addEntry() {
 		})
 			.then(res => res.json())
 			.then((data) => {
+				document.getElementById('loading').style.display = 'none';
 				if (data.status === 'Failed') {
 					document.getElementById('flash-message').style.display = 'block';
 					document.getElementById('flash-message').style.backgroundColor = 'red';
@@ -241,6 +239,7 @@ function editEntry() {
 		const pageUrl = window.location.href;
 		const url = new URL(pageUrl);
 		const entryId = url.searchParams.get('entries');
+		document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
 		fetch(`${baseUrl}/entries/${entryId}`, {
 			method: 'PUT',
 			headers: {
@@ -251,6 +250,7 @@ function editEntry() {
 		})
 			.then(res => res.json())
 			.then((data) => {
+				document.getElementById('loading').style.display = 'none';
 				document.querySelector('.form_error_text').style.display = 'none';
 				if (data.status === 'Success') {
 					window.location = `show.html?entries=${entryId}&notice=${data.message}`;
@@ -270,6 +270,7 @@ function updateProfile() {
 		const email = document.querySelector('form input[type="email"]').value;
 		const fullName = document.querySelector('form input[type="text"]').value;
 		const dateOfBirth = document.querySelector('form input[type="date"]').value;
+		document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
 		fetch(`${baseUrl}/user/profile`, {
 			method: 'PUT',
 			headers: {
@@ -280,6 +281,7 @@ function updateProfile() {
 		})
 			.then(res => res.json())
 			.then((data) => {
+				document.getElementById('loading').style.display = 'none';
 				console.log(data);
 				document.querySelector('.form_error_text').style.display = 'none';
 				if (data.status === 'Success') {
@@ -298,6 +300,7 @@ function saveSettings() {
 	const noneEmpty = validateForm(errorMessage, successMessage, event);
 	if (noneEmpty === true) { // validation was successful
 		const reminderTime = document.querySelector('form input[type="time"]').value;
+		document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
 		fetch(`${baseUrl}/user/notifications`, {
 			method: 'PUT',
 			headers: {
@@ -308,6 +311,7 @@ function saveSettings() {
 		})
 			.then(res => res.json())
 			.then((data) => {
+				document.getElementById('loading').style.display = 'none';
 				console.log(data);
 				document.querySelector('.form_error_text').style.display = 'none';
 				if (data.status === 'Success') {
@@ -319,7 +323,6 @@ function saveSettings() {
 					document.querySelector('.form_error_text small').textContent = data.message;
 				}
 			});
-		//
 	}
 }
 
@@ -335,11 +338,13 @@ function checkNotice() {
 	const pageUrl = window.location.href;
 	const url = new URL(pageUrl);
 	const notice = url.searchParams.get('notice');
-	console.log(notice);
 	if (notice) {
 		if (notice.length >= 1) {
 			document.querySelector('#flash-message').style.display = 'block';
 			document.querySelector('#flash-message p').textContent = notice;
+			if (url.searchParams.get('warning')) {
+				document.querySelector('#flash-message').style.backgroundColor = '#fd616b';
+			}
 		}
 	}
 }
