@@ -236,7 +236,29 @@ function editEntry() {
 	const errorMessage = 'One or more of the required fields is empty!';
 	const noneEmpty = validateForm(errorMessage, successMessage, event);
 	if (noneEmpty === true) { // validation was successful
-
+		const title = document.querySelector('form input[type="text"]').value;
+		const description = document.querySelector('form textarea').value;
+		const pageUrl = window.location.href;
+		const url = new URL(pageUrl);
+		const entryId = url.searchParams.get('entries');
+		fetch(`${baseUrl}/entries/${entryId}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+				token: localStorage.getItem('diary_token'),
+			},
+			body: window.JSON.stringify({ title, description }),
+		})
+			.then(res => res.json())
+			.then((data) => {
+				document.querySelector('.form_error_text').style.display = 'none';
+				if (data.status === 'Success') {
+					window.location = `show.html?entries=${entryId}&notice=${data.message}`;
+				} else {
+					document.querySelector('.form_error_text').style.display = 'block';
+					document.querySelector('.form_error_text small').textContent = data.message;
+				}
+			});
 	}
 }
 

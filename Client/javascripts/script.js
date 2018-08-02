@@ -238,8 +238,31 @@ function editEntry() {
 	var successMessage = 'Entry has been updated!';
 	var errorMessage = 'One or more of the required fields is empty!';
 	var noneEmpty = validateForm(errorMessage, successMessage, event);
-	if (noneEmpty === true) {// validation was successful
-
+	if (noneEmpty === true) {
+		// validation was successful
+		var title = document.querySelector('form input[type="text"]').value;
+		var description = document.querySelector('form textarea').value;
+		var pageUrl = window.location.href;
+		var url = new URL(pageUrl);
+		var entryId = url.searchParams.get('entries');
+		fetch(baseUrl + '/entries/' + entryId, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+				token: localStorage.getItem('diary_token')
+			},
+			body: window.JSON.stringify({ title: title, description: description })
+		}).then(function (res) {
+			return res.json();
+		}).then(function (data) {
+			document.querySelector('.form_error_text').style.display = 'none';
+			if (data.status === 'Success') {
+				window.location = 'show.html?entries=' + entryId + '&notice=' + data.message;
+			} else {
+				document.querySelector('.form_error_text').style.display = 'block';
+				document.querySelector('.form_error_text small').textContent = data.message;
+			}
+		});
 	}
 }
 

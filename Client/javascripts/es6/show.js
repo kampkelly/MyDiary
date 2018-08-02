@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const pageUrl = window.location.href;
 	const url = new URL(pageUrl);
 	const entryId = url.searchParams.get('entries');
+	document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
 	fetch(`${baseUrl}/entries/${entryId}`, {
 		method: 'GET',
 		headers: {
@@ -12,14 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 		.then(res => res.json())
 		.then((data) => {
-			console.log(data);
-			document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
 			if (data.status === 'Failed') {
 				document.getElementById('loading').style.display = 'none';
 				document.getElementById('flash-message').style.display = 'block';
 				document.getElementById('flash-message').style.backgroundColor = 'red';
 				document.querySelector('#flash-message p').textContent = data.message;
-				document.getElementById('show').innerHTML = '<h3 class="text-center white-text">going back to index page in <span id="countdown">3</span> seconds...</h3>';
+				document.getElementById('show').innerHTML = '<h3 class="text-center white-text">going back to the dashboard in <span id="countdown">3</span> seconds...</h3>';
 				let count = 3;
 				setInterval(() => {
 					document.getElementById('countdown').textContent = count;
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					<h3 class="title text-center white-text">${data.data.title}</h3>
 					<span class="small-text light-text primary-text"><b>${date}</b></span>
 					<div>
-						<small><a href="edit.html?entries=${data.data.id}" class="">Modify</a> <a href="delete" class="danger-text delete-entry">Delete</a></small>
+						<small><a href="edit.html?entries=${data.data.id}" class="">Update</a> <a href="delete" class="danger-text delete-entry">Delete</a></small>
 					</div>
 					<p class="description white-text">
 						${data.data.description}
@@ -55,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
 					})
 						.then(res => res.json())
 						.then((newData) => {
-							console.log(newData);
 							if (newData.status === 'Failed') {
 								document.getElementById('flash-message').style.display = 'block';
 								document.getElementById('flash-message').style.backgroundColor = 'red';
