@@ -1,5 +1,6 @@
-const baseUrl = 'http://localhost:3000/api/v1';
+const baseUrl = 'https://kampkelly-mydiary-api.herokuapp.com/api/v1';
 document.addEventListener('DOMContentLoaded', () => {
+	document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
 	fetch(`${baseUrl}/user/profile`, {
 		method: 'GET',
 		headers: {
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 		.then(res => res.json())
 		.then((data) => {
+			document.getElementById('loading').style.display = 'none';
 			console.log(data);
 			console.log(data.data.user);
 			const dateofbirth = data.data.user.dateofbirth.split('T')[0];
@@ -26,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			</div>
 			`;
 			document.querySelector('#insert').innerHTML = html;
-			document.querySelector('#settings #notification_time').textContent = data.data.user.remindertime;
+			if (data.data.user.remindertime !== null) document.querySelector('#settings #notification_time').textContent = data.data.user.remindertime;
 			document.querySelector('input[type="time"]').value = data.data.user.remindertime;
 			fetch(`${baseUrl}/entries`, {
 				method: 'GET',
