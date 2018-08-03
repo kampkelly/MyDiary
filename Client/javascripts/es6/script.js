@@ -2,25 +2,29 @@
 /* eslint no-restricted-globals: ["off", "location", "event"] */
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
 /* eslint-disable no-unused-vars */
-// const baseUrl = 'https://kampkelly-mydiary-api.herokuapp.com/api/v1';
 const baseUrl = 'https://kampkelly-mydiary-api.herokuapp.com/api/v1';
 document.addEventListener('DOMContentLoaded', () => {
+	const signupLink = document.querySelectorAll('a[href="signup.html"]');
+	const signinLink = document.querySelectorAll('a[href="signin.html"]');
+	const dashboardLink = document.querySelectorAll('a[href="dashboard.html"]');
+	const profileLink = document.querySelectorAll('a[href="profile.html"]');
+	const logoutLink = document.querySelectorAll('a[href="#logout"]');
 	function authenticate() {
 		if (localStorage.getItem('diary_token')) { // authenticated
-			document.querySelectorAll('a[href="signup.html"]')[0].parentNode.style.display = 'none';
-			document.querySelectorAll('a[href="signup.html"]')[1].parentNode.style.display = 'none';
-			document.querySelectorAll('li>a[href="signin.html"]')[0].parentNode.style.display = 'none';
-			document.querySelectorAll('li>a[href="signin.html"]')[1].parentNode.style.display = 'none';
+			signupLink[0].parentNode.style.display = 'none';
+			signupLink[1].parentNode.style.display = 'none';
+			signinLink[0].parentNode.style.display = 'none';
+			signinLink[1].parentNode.style.display = 'none';
 		} else {
 			// eslint-disable-next-line
 			document.querySelector('a[href="#logout"]').style.display = 'none';
 			if (location.href.includes('/signup.html') || location.href.includes('/signin.html') || location.href.includes('/forgot_password.html') || location.href.includes('/about.html')) {
-				document.querySelectorAll('a[href="dashboard.html"]')[1].parentNode.style.display = 'none';
-				document.querySelectorAll('a[href="dashboard.html"]')[3].parentNode.style.display = 'none';
-				document.querySelectorAll('a[href="profile.html"]')[0].parentNode.style.display = 'none';
-				document.querySelectorAll('a[href="profile.html"]')[1].parentNode.style.display = 'none';
-				document.querySelectorAll('a[href="#logout"]')[0].parentNode.style.display = 'none';
-				document.querySelectorAll('a[href="#logout"]')[1].parentNode.style.display = 'none';
+				dashboardLink[1].parentNode.style.display = 'none';
+				dashboardLink[3].parentNode.style.display = 'none';
+				profileLink[0].parentNode.style.display = 'none';
+				profileLink[1].parentNode.style.display = 'none';
+				logoutLink[0].parentNode.style.display = 'none';
+				logoutLink[1].parentNode.style.display = 'none';
 			} else {
 				window.location = 'signin.html?notice=You are not logged in!&warning=red';
 			}
@@ -88,6 +92,7 @@ document.getElementById('change_settings').addEventListener('click', () => {
 	document.querySelectorAll('#profile #settings form input[type="time"]')[0].style.backgroundColor = 'white';
 	document.querySelectorAll('#profile #settings form button')[0].style.backgroundColor = '#052F60';
 	document.querySelectorAll('#profile #settings form button')[0].style.color = 'white';
+	document.querySelectorAll('#profile #settings form button')[0].innerHTML = 'Save';
 	document.querySelectorAll('#profile #settings form button')[0].addEventListener('mouseover', () => {
 		document.querySelectorAll('#profile #settings form button')[0].style.backgroundColor = '#8c8c8c';
 	});
@@ -151,7 +156,7 @@ function submitSignup() {
 				.then(res => res.json())
 				.then((data) => {
 					if (data.status === 'Success') {
-						localStorage.setItem('diary_token', data.data.token);
+						localStorage.setItem('diary_token', data.user.token);
 						window.location = `dashboard.html?notice=${data.message}`;
 					} else {
 						document.querySelector('.form_error_text').style.display = 'block';
@@ -180,7 +185,7 @@ function submitSignin() {
 			.then((data) => {
 				document.querySelector('.form_error_text').style.display = 'none';
 				if (data.status === 'Success') {
-					localStorage.setItem('diary_token', data.data.token);
+					localStorage.setItem('diary_token', data.user.token);
 					window.location = `dashboard.html?notice=${data.message}`;
 				} else {
 					document.querySelector('.form_error_text').style.display = 'block';
@@ -219,9 +224,11 @@ function addEntry() {
 			.then((data) => {
 				document.getElementById('loading').style.display = 'none';
 				if (data.status === 'Failed') {
-					document.getElementById('flash-message').style.display = 'block';
-					document.getElementById('flash-message').style.backgroundColor = 'red';
-					document.querySelector('#flash-message p').textContent = data.message;
+					document.querySelector('.form_error_text').style.display = 'block';
+					document.querySelector('.form_error_text small').textContent = data.message;
+					// document.getElementById('flash-message').style.display = 'block';
+					// document.getElementById('flash-message').style.backgroundColor = 'red';
+					// document.querySelector('#flash-message p').textContent = data.message;
 				} else if (data.status === 'Success') {
 					window.location = `dashboard.html?notice=${data.message}`;
 				}
@@ -317,7 +324,7 @@ function saveSettings() {
 				if (data.status === 'Success') {
 					document.getElementById('flash-message').style.display = 'block';
 					document.querySelector('#flash-message p').textContent = data.message;
-					document.querySelector('#settings #notification_time').textContent = reminderTime;
+					document.querySelector('#profile_details  #notification_time').textContent = reminderTime;
 				} else {
 					document.querySelector('.form_error_text').style.display = 'block';
 					document.querySelector('.form_error_text small').textContent = data.message;

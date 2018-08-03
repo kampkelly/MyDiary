@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				window.location = 'dashboard.html';
 			}, 4000);
 		} else if (data.status === 'Success') {
-			document.querySelector('input[type="text"]').value = data.data.title;
-			document.querySelector('textarea').value = data.data.description;
+			document.querySelector('input[type="text"]').value = data.entry.title;
+			document.querySelector('textarea').value = data.entry.description;
 		}
 	});
 });

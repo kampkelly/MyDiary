@@ -20,8 +20,9 @@ header {
             font-size: 0.8em;
             ul {
                 margin-top: 30px;
+				float: right;
                 li {
-                    margin-left: -30px;
+                    margin-right: 22px;
                     a {
 						padding: 12px 24px;
                         color: white;
@@ -162,6 +163,8 @@ header {
             ul {
                 margin-top: 5px;
                 padding-bottom: 10px;
+				float: none;
+				justify-content: space-around;
             }
         }
     }

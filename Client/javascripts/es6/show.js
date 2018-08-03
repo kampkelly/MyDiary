@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	const pageUrl = window.location.href;
 	const url = new URL(pageUrl);
 	const entryId = url.searchParams.get('entries');
-	console.log(entryId);
 	if (entryId === null) {
 		window.location = 'dashboard.html';
 	}
@@ -37,16 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
 				}, 3000);
 			} else if (data.status === 'Success') {
 				document.getElementById('loading').style.display = 'none';
-				const date = data.data.created_at.split('T')[0];
+				const date = data.entry.created_at.split('T')[0];
 				const html = `
 				<article>
-					<h3 class="title text-center white-text">${data.data.title}</h3>
+					<h3 class="title text-center white-text">${data.entry.title}</h3>
 					<span class="small-text light-text primary-text"><b>${date}</b></span>
 					<div>
-						<small><a href="edit.html?entries=${data.data.id}" class="">Update</a> <a href="delete" class="danger-text delete-entry">Delete</a></small>
+						<small><a href="edit.html?entries=${data.entry.id}" class="">Update</a> <a href="delete" class="danger-text delete-entry">Delete</a></small>
 					</div>
 					<p class="description white-text">
-						${data.data.description}
+						${data.entry.description}
 					</p>
 				</article>
 				`;
