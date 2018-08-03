@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			const html = `
 			<ul class="no-styling">
 				<li ><strong>Email:</strong> ${data.user.user.email}</li>
-				<li ><strong>Name:</strong> ${data.user.user.fullname.toUpperCase()}</li>
+				<li ><strong>Name:</strong> ${data.user.user.fullname}</li>
 				<li ><strong>Date of birth:</strong> ${dateofbirth}</li>
 				<li ><strong>Date Joined:</strong> ${createdAt}</li>
 			</ul>
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			})
 				.then(res => res.json())
 				.then((newData) => {
-					document.querySelector('.light-white-text small').textContent = `Total number of entries in diary: ${newData.data.length}`;
+					document.querySelector('.light-white-text small').textContent = `Total number of entries in diary: ${newData.entries.length}`;
 				});
 		});
 });
