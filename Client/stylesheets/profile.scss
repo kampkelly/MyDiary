@@ -29,16 +29,22 @@ main {
 #profile_details {
 	background: #e1e1e1;
 	padding: 30px;
+	min-height: 350px;
 	li, p {
 		color: #DEAB3B;
 	}
-    // border-bottom: 1px solid #e9e9e9;
+	p.notification_text {
+		color: red;
+	}
 }
 #settings {
+	background: #c8c8c8;
+	padding: 30px;
+	min-height: 350px;
     form {
         color: gray;
         padding: 10px;
-		width: 70%;
+		width: 80%;
 		margin: auto;
         .field {
             background: none;
@@ -66,4 +72,7 @@ main {
         margin: auto;
         width: 70%;
     }
+	[class*='col-'] {
+	  padding-right: 0px;
+	}
 }

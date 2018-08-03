@@ -11,25 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
 		.then(res => res.json())
 		.then((data) => {
 			document.getElementById('loading').style.display = 'none';
-			console.log(data);
-			console.log(data.data.user);
-			const dateofbirth = data.data.user.dateofbirth.split('T')[0];
-			const createdAt = data.data.user.created_at.split('T')[0];
+			const dateofbirth = data.user.user.dateofbirth.split('T')[0];
+			const createdAt = data.user.user.created_at.split('T')[0];
 			const html = `
 			<ul class="no-styling">
-				<li ><strong>Email:</strong> ${data.data.user.email}</li>
-				<li ><strong>Name:</strong> ${data.data.user.fullname}</li>
+				<li ><strong>Email:</strong> ${data.user.user.email}</li>
+				<li ><strong>Name:</strong> ${data.user.user.fullname}</li>
 				<li ><strong>Date of birth:</strong> ${dateofbirth}</li>
 				<li ><strong>Date Joined:</strong> ${createdAt}</li>
 			</ul>
-			<div class="text-center">
+			<div class="">
 				<a href="edit-profile.html" class="underline"><small>Edit Profile</small></a>
-				<p class="light-white-text text-center"><small>Total number of entries in diary: 4</small></p>
+				<p class="light-white-text"><small>Total number of entries in diary: 4</small></p>
 			</div>
 			`;
 			document.querySelector('#insert').innerHTML = html;
-			if (data.data.user.remindertime !== null) document.querySelector('#settings #notification_time').textContent = data.data.user.remindertime;
-			document.querySelector('input[type="time"]').value = data.data.user.remindertime;
+			if (data.user.user.remindertime !== null) document.querySelector('#profile_details #notification_time').textContent = data.user.user.remindertime;
+			document.querySelector('input[type="time"]').value = data.user.user.remindertime;
 			fetch(`${baseUrl}/entries`, {
 				method: 'GET',
 				headers: {
@@ -39,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			})
 				.then(res => res.json())
 				.then((newData) => {
-					document.querySelector('.light-white-text small').textContent = `Total number of entries in diary: ${newData.data.length}`;
+					document.querySelector('.light-white-text small').textContent = `Total number of entries in diary: ${newData.entries.length}`;
 				});
 		});
 });

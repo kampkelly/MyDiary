@@ -22,15 +22,24 @@ main {
 #profile_details {
   background: #e1e1e1;
   padding: 30px;
+  min-height: 350px;
 }
 #profile_details li, #profile_details p {
   color: #DEAB3B;
 }
+#profile_details p.notification_text {
+  color: red;
+}
 
+#settings {
+  background: #c8c8c8;
+  padding: 30px;
+  min-height: 350px;
+}
 #settings form {
   color: gray;
   padding: 10px;
-  width: 70%;
+  width: 80%;
   margin: auto;
 }
 #settings form .field {
@@ -54,5 +63,9 @@ main {
   #settings form {
     margin: auto;
     width: 70%;
+  }
+
+  [class*='col-'] {
+    padding-right: 0px;
   }
 }
