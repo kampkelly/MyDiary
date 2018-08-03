@@ -279,6 +279,14 @@ footer li small {
   color: gray;
 }
 
+.mt-2 {
+  margin-top: 4px;
+}
+
+.mt-4 {
+  margin-top: 8px;
+}
+
 /*media queries*/
 @media (min-width: 0px) and (max-width: 599px) {
   .container {

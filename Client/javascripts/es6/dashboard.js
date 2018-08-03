@@ -1,6 +1,6 @@
 const baseUrl = 'https://kampkelly-mydiary-api.herokuapp.com/api/v1';
 document.addEventListener('DOMContentLoaded', () => {
-	fetch(`${baseUrl}/entries`, {
+	fetch(`${baseUrl}/entries?limit=4`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
@@ -9,16 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 		.then(res => res.json())
 		.then((data) => {
-			if (data.data.length >= 1) {
-				const entries = data.data.filter((da, index) => data.data.indexOf(da)
-				<= (data.data.length - 4) && index < 4);
+			if (data.entries.length >= 1) {
+				const { entries } = data;
 				let html = '<li></li>';
 				entries.map((entry) => {
 					html += `<li><a href="show.html?entries=${entry.id}"><h4 class="title">${entry.title}</h4></a></li>`;
 					return entry;
 				});
 				document.querySelector('aside .no-styling').innerHTML = html;
-			} else if (data.data.length < 1) {
+			} else if (data.entries.length < 1) {
 				document.querySelector('aside .no-styling').innerHTML = '<h3 class="text-center">No entries</h3>';
 				document.querySelector('aside .no-styling h3').style.color = '#DFAC2C';
 			}
@@ -40,9 +39,9 @@ function viewEntries() {
 		.then(res => res.json())
 		.then((data) => {
 			document.getElementById('loading').style.display = 'none';
-			if (data.data.length >= 1) {
+			if (data.entries.length >= 1) {
 				let html = '<li></li>';
-				data.data.map((entry) => {
+				data.entries.map((entry) => {
 					const date = entry.created_at.split('T')[0];
 					html += `<li>
 					<h4 class="title"><a href="show.html?entries=${entry.id}">${entry.title}</a> <span class="small-text light-text">${date}</span></h4>
@@ -51,7 +50,7 @@ function viewEntries() {
 					return entry;
 				});
 				document.querySelector('#index .no-styling').innerHTML = html;
-			} else if (data.data.length < 1) {
+			} else if (data.entries.length < 1) {
 				document.querySelector('#index .no-styling').innerHTML = '<h3 class="text-center danger-text">You do not have any entries yet..<a href="add.html">Create one now</a></h3>';
 			}
 		});

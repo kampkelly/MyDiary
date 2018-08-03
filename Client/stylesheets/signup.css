@@ -10,6 +10,16 @@ main h2 {
   padding-top: 20px;
 }
 
+#signup h1 {
+  font-size: 2.2em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 10px;
+  color: #DFAC2C;
+}
+#signup h5 {
+  margin-bottom: 0px;
+}
 #signup .form-cover {
   background: rgba(107, 101, 101, 0.3);
   width: 61%;

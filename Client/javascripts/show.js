@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	var pageUrl = window.location.href;
 	var url = new URL(pageUrl);
 	var entryId = url.searchParams.get('entries');
-	console.log(entryId);
 	if (entryId === null) {
 		window.location = 'dashboard.html';
 	}
@@ -39,8 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			}, 3000);
 		} else if (data.status === 'Success') {
 			document.getElementById('loading').style.display = 'none';
-			var date = data.data.created_at.split('T')[0];
-			var html = '\n\t\t\t\t<article>\n\t\t\t\t\t<h3 class="title text-center white-text">' + data.data.title + '</h3>\n\t\t\t\t\t<span class="small-text light-text primary-text"><b>' + date + '</b></span>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<small><a href="edit.html?entries=' + data.data.id + '" class="">Update</a> <a href="delete" class="danger-text delete-entry">Delete</a></small>\n\t\t\t\t\t</div>\n\t\t\t\t\t<p class="description white-text">\n\t\t\t\t\t\t' + data.data.description + '\n\t\t\t\t\t</p>\n\t\t\t\t</article>\n\t\t\t\t';
+			var date = data.entry.created_at.split('T')[0];
+			var html = '\n\t\t\t\t<article>\n\t\t\t\t\t<h3 class="title text-center white-text">' + data.entry.title + '</h3>\n\t\t\t\t\t<span class="small-text light-text primary-text"><b>' + date + '</b></span>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<small><a href="edit.html?entries=' + data.entry.id + '" class="">Update</a> <a href="delete" class="danger-text delete-entry">Delete</a></small>\n\t\t\t\t\t</div>\n\t\t\t\t\t<p class="description white-text">\n\t\t\t\t\t\t' + data.entry.description + '\n\t\t\t\t\t</p>\n\t\t\t\t</article>\n\t\t\t\t';
 			document.getElementById('show').innerHTML = html;
 			document.querySelector('.delete-entry').addEventListener('click', function (event) {
 				event.preventDefault();
