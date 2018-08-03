@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				const { entries } = data;
 				let html = '<li></li>';
 				entries.map((entry) => {
-					html += `<li><a href="show.html?entries=${entry.id}"><h4 class="title">${entry.title}</h4></a></li>`;
+					html += `<li><a href="show.html?entries=${entry.id}"><h4 class="title">${entry.title.slice(0, 50)}</h4></a></li>`;
 					return entry;
 				});
 				document.querySelector('aside .no-styling').innerHTML = html;
