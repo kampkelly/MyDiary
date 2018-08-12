@@ -42,7 +42,7 @@ function viewEntries() {
 			if (data.entries.length >= 1) {
 				let html = '<li></li>';
 				data.entries.map((entry) => {
-					const date = entry.created_at.split('T')[0];
+					const date = entry.createdat.split('T')[0];
 					html += `<li>
 					<h4 class="title"><a href="show.html?entries=${entry.id}">${entry.title}</a> <span class="small-text light-text">${date}</span></h4>
 					<p class="description">${entry.description.slice(0, 150)} <a href="show.html?entries=${entry.id}">Read more...</a></p>

@@ -11,14 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
 		.then(res => res.json())
 		.then((data) => {
 			document.getElementById('loading').style.display = 'none';
-			const dateofbirth = data.user.user.dateofbirth.split('T')[0];
-			const createdAt = data.user.user.created_at.split('T')[0];
+			let dateofbirth = ' ';
+			if (data.user.user.dateofbirth && data.user.user.dateofbirth !== ' ') {
+				// eslint-disable-next-line
+				dateofbirth = data.user.user.dateofbirth.split('T')[0];
+			}
+			const createdat = data.user.user.createdat.split('T')[0];
 			const html = `
 			<ul class="no-styling">
 				<li ><strong>Email:</strong> ${data.user.user.email}</li>
 				<li ><strong>Name:</strong> ${data.user.user.fullname}</li>
 				<li ><strong>Date of birth:</strong> ${dateofbirth}</li>
-				<li ><strong>Date Joined:</strong> ${createdAt}</li>
+				<li ><strong>Date Joined:</strong> ${createdat}</li>
 			</ul>
 			<div class="">
 				<a href="edit-profile.html" class="underline"><small>Edit Profile</small></a>
