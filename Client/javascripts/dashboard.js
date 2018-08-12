@@ -45,7 +45,7 @@ function viewEntries() {
 		if (data.entries.length >= 1) {
 			var html = '<li></li>';
 			data.entries.map(function (entry) {
-				var date = entry.created_at.split('T')[0];
+				var date = entry.createdat.split('T')[0];
 				html += '<li>\n\t\t\t\t\t<h4 class="title"><a href="show.html?entries=' + entry.id + '">' + entry.title + '</a> <span class="small-text light-text">' + date + '</span></h4>\n\t\t\t\t\t<p class="description">' + entry.description.slice(0, 150) + ' <a href="show.html?entries=' + entry.id + '">Read more...</a></p>\n\t\t\t\t\t</li>';
 				return entry;
 			});

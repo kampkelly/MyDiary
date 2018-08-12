@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				}, 3000);
 			} else if (data.status === 'Success') {
 				document.getElementById('loading').style.display = 'none';
-				const date = data.entry.created_at.split('T')[0];
+				const date = data.entry.createdat.split('T')[0];
 				const html = `
 				<article>
 					<h3 class="title text-center white-text">${data.entry.title}</h3>
