@@ -84,6 +84,23 @@
   text-align: center;
 }
 
+.pagination {
+  margin-top: 5px;
+}
+.pagination li {
+  padding: 5px 9px 5px 9px;
+  background: #052F60;
+  color: white;
+  margin: 0px;
+  cursor: pointer;
+  border-right: 1px solid #E5F0FE;
+}
+.pagination li:hover {
+  color: #DFAC2C;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
 img#loading {
   height: 40px;
   position: absolute;

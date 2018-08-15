@@ -275,7 +275,6 @@ function updateProfile() {
 			return res.json();
 		}).then(function (data) {
 			document.getElementById('loading').style.display = 'none';
-			console.log(data);
 			document.querySelector('.form_error_text').style.display = 'none';
 			if (data.status === 'Success') {
 				window.location = 'profile.html?notice=' + data.message;
@@ -306,7 +305,6 @@ function saveSettings() {
 			return res.json();
 		}).then(function (data) {
 			document.getElementById('loading').style.display = 'none';
-			console.log(data);
 			document.querySelector('.form_error_text').style.display = 'none';
 			if (data.status === 'Success') {
 				document.getElementById('flash-message').style.display = 'block';
