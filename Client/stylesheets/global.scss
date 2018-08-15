@@ -79,6 +79,21 @@ $tablet: "(min-width: 600px) and (max-width: 900px)";
 		text-align: center;
 	}
 }
+.pagination {
+	margin-top: 5px;
+	li {
+		padding: 5px 9px 5px 9px;
+		background: $primary-color;
+		color: white;
+		margin: 0px;
+		cursor: pointer;
+		border-right: 1px solid #E5F0FE;
+		&:hover {
+			color: $secondary-color;
+			transition: 0.7s;
+		}
+	}
+}
 img#loading {
 	height: 40px;
 	position: absolute;

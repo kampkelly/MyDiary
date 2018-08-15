@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
 						window.location = 'dashboard.html?notice=Entry has been deleted';
 					}
 				});
-				window.location = 'dashboard.html?notice=Entry has been deleted';
 			});
 		}
 	});

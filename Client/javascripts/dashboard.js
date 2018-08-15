@@ -28,7 +28,23 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // eslint-disable-next-line
+function insertEntriesList(offset, limit) {
+	var allEntries = window.en;
+	allEntries = window.en.slice(offset, offset + limit);
+	var html = '<li></li>';
+	allEntries.map(function (entry) {
+		var date = entry.createdat.split('T')[0];
+		html += '<li>\n\t\t<h4 class="title"><a href="show.html?entries=' + entry.id + '">' + entry.title + '</a> <span class="small-text light-text">' + date + '</span></h4>\n\t\t<p class="description">' + entry.description.slice(0, 150) + ' <a href="show.html?entries=' + entry.id + '">Read more...</a></p>\n\t\t</li>';
+		return entry;
+	});
+	document.querySelector('#index .no-styling').innerHTML = html;
+}
+
+// eslint-disable-next-line
 function viewEntries() {
+	var offset = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+	var limit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 7;
+
 	document.querySelector('#dashboard').style.display = 'none';
 	document.querySelector('#index').style.display = 'block';
 	document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
@@ -43,13 +59,10 @@ function viewEntries() {
 	}).then(function (data) {
 		document.getElementById('loading').style.display = 'none';
 		if (data.entries.length >= 1) {
-			var html = '<li></li>';
-			data.entries.map(function (entry) {
-				var date = entry.createdat.split('T')[0];
-				html += '<li>\n\t\t\t\t\t<h4 class="title"><a href="show.html?entries=' + entry.id + '">' + entry.title + '</a> <span class="small-text light-text">' + date + '</span></h4>\n\t\t\t\t\t<p class="description">' + entry.description.slice(0, 150) + ' <a href="show.html?entries=' + entry.id + '">Read more...</a></p>\n\t\t\t\t\t</li>';
-				return entry;
-			});
-			document.querySelector('#index .no-styling').innerHTML = html;
+			// eslint-disable-next-line
+			paginate(data.entries.length, offset, limit, data.entries, true);
+			window.en = data.entries;
+			insertEntriesList(offset, limit);
 		} else if (data.entries.length < 1) {
 			document.querySelector('#index .no-styling').innerHTML = '<h3 class="text-center danger-text">You do not have any entries yet..<a href="add.html">Create one now</a></h3>';
 		}
