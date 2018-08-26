@@ -11,29 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	var dashboardLink = document.querySelectorAll('a[href="dashboard.html"]');
 	var profileLink = document.querySelectorAll('a[href="profile.html"]');
 	var logoutLink = document.querySelectorAll('a[href="#logout"]');
-	function authenticate() {
-		if (localStorage.getItem('diary_token')) {
-			// authenticated
-			signupLink[0].parentNode.style.display = 'none';
-			signupLink[1].parentNode.style.display = 'none';
-			signinLink[0].parentNode.style.display = 'none';
-			signinLink[1].parentNode.style.display = 'none';
-		} else {
-			// eslint-disable-next-line
-			document.querySelector('a[href="#logout"]').style.display = 'none';
-			if (location.href.includes('/signup.html') || location.href.includes('/signin.html') || location.href.includes('/forgot_password.html') || location.href.includes('/about.html')) {
-				dashboardLink[1].parentNode.style.display = 'none';
-				dashboardLink[3].parentNode.style.display = 'none';
-				profileLink[0].parentNode.style.display = 'none';
-				profileLink[1].parentNode.style.display = 'none';
-				logoutLink[0].parentNode.style.display = 'none';
-				logoutLink[1].parentNode.style.display = 'none';
-			} else {
-				window.location = 'signin.html?notice=You are not logged in!&warning=red';
-			}
-		}
-	}
-	authenticate();
 	// slider animations
 	document.querySelector('#carousel > ul li:nth-child(1) h4').style.color = '#DFAC2C';
 	$('#carousel > ul li:nth-child(1)').on('click', function () {
@@ -160,7 +137,7 @@ function submitSignup() {
 				return res.json();
 			}).then(function (data) {
 				if (data.status === 'Success') {
-					localStorage.setItem('diary_token', data.user.token);
+					localStorage.setItem('diary_token', data.token);
 					window.location = 'dashboard.html?notice=' + data.message;
 				} else {
 					document.querySelector('.form_error_text').style.display = 'block';
@@ -173,7 +150,7 @@ function submitSignup() {
 
 function submitSignin() {
 	var successMessage = 'You have successfully signed in!';
-	var errorMessage = 'One or more of the required fields is empty!';
+	var errorMessage = 'One or more of the required fields are empty!';
 	var noneEmpty = validateForm(errorMessage, successMessage, event);
 	if (noneEmpty === true) {
 		// validation was successful
@@ -190,7 +167,7 @@ function submitSignin() {
 		}).then(function (data) {
 			document.querySelector('.form_error_text').style.display = 'none';
 			if (data.status === 'Success') {
-				localStorage.setItem('diary_token', data.user.token);
+				localStorage.setItem('diary_token', data.token);
 				window.location = 'dashboard.html?notice=' + data.message;
 			} else {
 				document.querySelector('.form_error_text').style.display = 'block';
@@ -212,7 +189,7 @@ function forgotPassword() {
 
 function addEntry() {
 	var successMessage = 'Entry has been saved!';
-	var errorMessage = 'One or more of the required fields is empty!';
+	var errorMessage = 'One or more of the required fields are empty!';
 	var noneEmpty = validateForm(errorMessage, successMessage, event);
 	if (noneEmpty === true) {
 		// validation was successful
@@ -245,7 +222,7 @@ function addEntry() {
 
 function editEntry() {
 	var successMessage = 'Entry has been updated!';
-	var errorMessage = 'One or more of the required fields is empty!';
+	var errorMessage = 'One or more of the required fields are empty!';
 	var noneEmpty = validateForm(errorMessage, successMessage, event);
 	if (noneEmpty === true) {
 		// validation was successful
@@ -298,7 +275,6 @@ function updateProfile() {
 			return res.json();
 		}).then(function (data) {
 			document.getElementById('loading').style.display = 'none';
-			console.log(data);
 			document.querySelector('.form_error_text').style.display = 'none';
 			if (data.status === 'Success') {
 				window.location = 'profile.html?notice=' + data.message;
@@ -329,7 +305,6 @@ function saveSettings() {
 			return res.json();
 		}).then(function (data) {
 			document.getElementById('loading').style.display = 'none';
-			console.log(data);
 			document.querySelector('.form_error_text').style.display = 'none';
 			if (data.status === 'Success') {
 				document.getElementById('flash-message').style.display = 'block';
@@ -360,7 +335,7 @@ function checkNotice() {
 			document.querySelector('#flash-message').style.display = 'block';
 			document.querySelector('#flash-message p').textContent = notice;
 			if (url.searchParams.get('warning')) {
-				document.querySelector('#flash-message').style.backgroundColor = '#fd616b';
+				document.querySelector('#flash-message').style.backgroundColor = '#e00a1e';
 			}
 		}
 	}

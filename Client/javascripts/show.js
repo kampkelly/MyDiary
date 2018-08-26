@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			}, 3000);
 		} else if (data.status === 'Success') {
 			document.getElementById('loading').style.display = 'none';
-			var date = data.entry.created_at.split('T')[0];
+			var date = data.entry.createdat.split('T')[0];
 			var html = '\n\t\t\t\t<article>\n\t\t\t\t\t<h3 class="title text-center white-text">' + data.entry.title + '</h3>\n\t\t\t\t\t<span class="small-text light-text primary-text"><b>' + date + '</b></span>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<small><a href="edit.html?entries=' + data.entry.id + '" class="">Update</a> <a href="delete" class="danger-text delete-entry">Delete</a></small>\n\t\t\t\t\t</div>\n\t\t\t\t\t<p class="description white-text">\n\t\t\t\t\t\t' + data.entry.description + '\n\t\t\t\t\t</p>\n\t\t\t\t</article>\n\t\t\t\t';
 			document.getElementById('show').innerHTML = html;
 			document.querySelector('.delete-entry').addEventListener('click', function (event) {
@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
 						window.location = 'dashboard.html?notice=Entry has been deleted';
 					}
 				});
-				window.location = 'dashboard.html?notice=Entry has been deleted';
 			});
 		}
 	});
