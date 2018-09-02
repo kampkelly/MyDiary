@@ -64,21 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	// slider animations
 });
 
-document.getElementById('change_settings').addEventListener('click', () => {
-	document.querySelectorAll('#profile #settings form input[type="time"]')[0].removeAttribute('disabled');
-	document.querySelectorAll('#profile #settings form button')[0].removeAttribute('disabled');
-	document.querySelectorAll('#profile #settings form input[type="time"]')[0].style.backgroundColor = 'white';
-	document.querySelectorAll('#profile #settings form button')[0].style.backgroundColor = '#052F60';
-	document.querySelectorAll('#profile #settings form button')[0].style.color = 'white';
-	document.querySelectorAll('#profile #settings form button')[0].innerHTML = 'Save';
-	document.querySelectorAll('#profile #settings form button')[0].addEventListener('mouseover', () => {
-		document.querySelectorAll('#profile #settings form button')[0].style.backgroundColor = '#8c8c8c';
-	});
-	document.querySelectorAll('#profile #settings form button')[0].addEventListener('mouseleave', () => {
-		document.querySelectorAll('#profile #settings form button')[0].style.backgroundColor = '#052F60';
-	});
-});
-
 function logout() {
 	localStorage.removeItem('diary_token');
 	window.location = 'signin.html';
@@ -332,3 +317,25 @@ function checkNotice() {
 	}
 }
 checkNotice();
+
+// eslint-disable-next-line
+function insertEntriesList(offset, limit) {
+	let allEntries = window.en;
+	allEntries = window.en.slice(offset, offset + limit);
+	let html = '<li></li>';
+	allEntries.map((entry) => {
+		const date = entry.createdat.split('T')[0];
+		html += `<li>
+		<h4 class="title"><a href="show.html?entries=${entry.id}">${entry.title}</a> <span class="small-text light-text">${date}</span></h4>
+		<p class="description">${entry.description.slice(0, 150)} <a href="show.html?entries=${entry.id}">Read more...</a></p>
+		</li>`;
+		return entry;
+	});
+	document.querySelector('#index .no-styling').innerHTML = html;
+}
+
+function searchEntries(id) {
+	event.preventDefault();
+	const searchQuery = document.getElementById(id).value;
+	window.location = `search.html?query=${searchQuery}`;
+}
