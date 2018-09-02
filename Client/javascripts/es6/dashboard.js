@@ -25,22 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // eslint-disable-next-line
-function insertEntriesList(offset, limit) {
-	let allEntries = window.en;
-	allEntries = window.en.slice(offset, offset + limit);
-	let html = '<li></li>';
-	allEntries.map((entry) => {
-		const date = entry.createdat.split('T')[0];
-		html += `<li>
-		<h4 class="title"><a href="show.html?entries=${entry.id}">${entry.title}</a> <span class="small-text light-text">${date}</span></h4>
-		<p class="description">${entry.description.slice(0, 150)} <a href="show.html?entries=${entry.id}">Read more...</a></p>
-		</li>`;
-		return entry;
-	});
-	document.querySelector('#index .no-styling').innerHTML = html;
-}
-
-// eslint-disable-next-line
 function viewEntries(offset = 0, limit = 7) {
 	document.querySelector('#dashboard').style.display = 'none';
 	document.querySelector('#index').style.display = 'block';
@@ -59,6 +43,7 @@ function viewEntries(offset = 0, limit = 7) {
 				// eslint-disable-next-line
 				paginate(data.entries.length, offset, limit, data.entries, true);
 				window.en = data.entries;
+				// eslint-disable-next-line
 				insertEntriesList(offset, limit);
 			} else if (data.entries.length < 1) {
 				document.querySelector('#index .no-styling').innerHTML = '<h3 class="text-center danger-text">You do not have any entries yet..<a href="add.html">Create one now</a></h3>';
