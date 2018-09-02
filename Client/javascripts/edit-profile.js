@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		return res.json();
 	}).then(function (data) {
 		document.getElementById('loading').style.display = 'none';
-		document.querySelector('input[type="email"]').value = data.user.user.email;
-		document.querySelector('input[type="text"]').value = data.user.user.fullname;
-		document.querySelector('input[type="date"]').valueAsDate = new Date(data.user.user.dateofbirth);
+		document.querySelector('input[type="email"]').value = data.user.email;
+		document.querySelector('input[type="text"]').value = data.user.fullname;
+		document.querySelector('input[type="date"]').valueAsDate = new Date(data.user.dateofbirth);
 	});
 });
 //# sourceMappingURL=edit-profile.js.map

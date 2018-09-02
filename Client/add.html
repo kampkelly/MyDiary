@@ -29,6 +29,14 @@
                                 <li class="list-inline"><a href="profile.html">My Profile</a></li>
 								<li class=""><a href="about.html">About</a></li>
                                 <li class=""><a href="#logout" onclick="logout()">Logout</a></li>
+								<li class="list-inline" id="search">
+                                    <div>
+										<form>
+											<input type="text" placeholder="search entries.." name="searchQuery" id="searchQueryDesktop"/>
+	                                        <input type="submit" value=" " onclick="searchEntries('searchQueryDesktop')"><img src="images/search-button.png" onclick="searchEntries('searchQueryDesktop')" />
+										</form>
+                                    </div>
+                                </li>
                             </ul>
                         </nav>
                         <nav class="mobile">
@@ -41,7 +49,15 @@
                                 <ul class="no-styling flex text-center">
                                     <span class="menu-button-close" id="menu-button-close">X</span>
                                     <li><h1 class="text-center"><a href="dashboard.html" class="white-text">My<span>Diary</span></a></h1></li>
-                                    <li class=""><a href="dashboard.html">Dashboard</a></li>
+									<li class="list-inline" id="search">
+	                                    <div>
+											<form>
+												<input type="text" placeholder="search entries.." name="searchQuery" id="searchQueryMobile"/>
+		                                        <input type="submit" value=" " onclick="searchEntries('searchQueryMobile')"><img src="images/search-button.png" onclick="searchEntries('searchQueryMobile')" />
+											</form>
+	                                    </div>
+	                                </li>
+									<li class=""><a href="dashboard.html">Dashboard</a></li>
 									<li class="list-inline"><a href="signup.html">Signup</a></li>
 	                                <li class="list-inline"><a href="signin.html">Signin</a></li>
                                     <li class=""><a href="profile.html">My Profile</a></li>
