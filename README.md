@@ -1,5 +1,5 @@
 # MyDiary
-This is an Andela bootcamp project titled MyDiary.
+This is MyDiary front-end application.
 
 ## About
 
