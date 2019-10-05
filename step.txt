@@ -1,0 +1,40 @@
+// function searchEntries() {
+// 	event.preventDefault();
+// 	// con
+// 	const searchQuery = document.querySelector('input[name="searchQuery"]').value;
+// 	document.querySelector('.main section').style.display = 'none';
+// 	// document.querySelector('#index').style.display = 'block';
+// 	document.querySelector('body').insertAdjacentHTML('afterbegin', '<img src="images/Rolling.svg" id="loading" />');
+// 	document.querySelector('.main').insertAdjacentHTML('afterbegin', '<h1>Inerted here!</h1>');
+// 	fetch(`http://localhost:3000/api/v1/entries?query=${searchQuery}`, {
+// 		method: 'GET',
+// 		headers: {
+// 			'Content-Type': 'application/json',
+// 			token: localStorage.getItem('diary_token'),
+// 		},
+// 	})
+// 		.then(res => res.json())
+// 		.then((data) => {
+// 			document.getElementById('loading').style.display = 'none';
+// 			if (data.entries.length >= 1) {
+// 				// eslint-disable-next-line
+// 				// paginate(data.entries.length, 0, 7, data.entries, true);
+// 				// window.en = data.entries;
+// 				let html = '<ul class="no-styling"><li></li>';
+// 				data.entries.map((entry) => {
+// 					const date = entry.createdat.split('T')[0];
+// 					html += `<li>
+// 					<h4 class="title"><a href="show.html?entries=${entry.id}">${entry.title}</a> <span class="small-text light-text">${date}</span></h4>
+// 					<p class="description">${entry.description.slice(0, 150)} <a href="show.html?entries=${entry.id}">Read more...</a></p>
+// 					</li>`;
+// 					return entry;
+// 				});
+// 				html += '<ul>';
+// 				document.querySelector('.main').innerHTML = html;
+// 				// insertEntriesList(0, 7);
+// 			} else if (data.entries.length < 1) {
+// 				document.querySelector('.main').innerHTML = '<h3 class="text-center success-text">No entries found!</h3>';
+// 			}
+// 		});
+// 	console.log(searchQuery);
+// }

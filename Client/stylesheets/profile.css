@@ -1,0 +1,71 @@
+main {
+  background-image: url("../images/2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat-x: no-repeat;
+  background-repeat-y: no-repeat;
+}
+
+#profile {
+  padding-top: 30px;
+  width: 90%;
+  margin: auto;
+}
+#profile ul li {
+  margin-bottom: 10px;
+}
+#profile .form-cover {
+  background: rgba(107, 101, 101, 0.3);
+  margin: auto;
+}
+
+#profile_details {
+  background: #e1e1e1;
+  padding: 30px;
+  min-height: 350px;
+}
+#profile_details li, #profile_details p {
+  color: #DEAB3B;
+}
+#profile_details p.notification_text {
+  color: red;
+}
+
+#settings {
+  background: #c8c8c8;
+  padding: 30px;
+  min-height: 350px;
+}
+#settings form {
+  color: gray;
+  padding: 10px;
+  width: 80%;
+  margin: auto;
+}
+#settings form .field {
+  background: none;
+}
+#settings form .field .control-form {
+  width: 100%;
+  background: gray;
+}
+#settings form .field button {
+  width: 100%;
+  background: #8c8c8c;
+}
+
+@media (min-width: 0px) and (max-width: 599px) {
+  form {
+    width: 90%;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  #settings form {
+    margin: auto;
+    width: 70%;
+  }
+
+  [class*='col-'] {
+    padding-right: 0px;
+  }
+}

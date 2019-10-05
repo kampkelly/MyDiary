@@ -1,0 +1,62 @@
+$primary-color: #052F60;
+$secondary-color: #DFAC2C;
+$white-color: #fafafa;
+$smartphone: "(min-width: 0px) and (max-width: 599px)";
+//$smartphone: "(min-width: 0px) and (max-width: 467px)";
+$tablet: "(min-width: 600px) and (max-width: 900px)";
+main {
+    background-image: url("../images/background.jpeg");
+    background-size: cover;
+	//transform: scale(0.9);
+	background-position: center;
+	background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    h2 {
+        margin-top: 0px;
+        padding-top: 20px;
+    }
+}
+#signup {
+	h1 {
+		font-size: 2.2em;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		padding-top: 10px;
+		color: $secondary-color;
+	}
+	h5 {
+		margin-bottom: 0px;
+	}
+    .form-cover {
+        background: rgba(107, 101, 101, 0.3);
+        width: 61%;
+        margin: auto;
+    }
+	.submit-button {
+		width: 100%;
+	}
+    @media #{$smartphone} {
+        .form-cover {
+            width: 90%;
+            margin: auto;
+        }
+		.submit-button {
+			width: 100%;
+		}
+    }
+    @media #{$tablet} {
+        .form-cover {
+            width: 80%;
+        }
+		button.button-white {
+			// width: 79%;
+			// margin-left: 20px;
+		}
+		.submit-button {
+			width: 100%;
+		}
+		[class*='col-'] {
+		  padding-right: 0;
+		}
+    }
+}
