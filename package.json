@@ -24,7 +24,7 @@
 		"dependencies": {
 				"babel-polyfill": "^6.26.0",
 				"babel-runtime": "^6.26.0",
-				"npm": "^6.2.0"
+				"npm": "^6.13.4"
 		},
 		"devDependencies": {
 				"babel-eslint": "^8.2.6",
